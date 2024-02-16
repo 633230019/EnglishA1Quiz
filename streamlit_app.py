@@ -10,8 +10,6 @@ from streamlit_extras.card import card
 hasClicked = card(
   title="Hello World!",
   text="Some description",
-  image="http://placekitten.com/200/300",
-  url="https://github.com/gamcoh/st-card"
 )
 
 df_Sent=pd.read_csv("./data/filtered_sentences_dataset_a1_20k.csv")
