@@ -69,6 +69,6 @@ downloadpd = st.button("pdf")
 if downloadpd:
     pdf_content = generate_pdf_content()
     pdf_base64 = base64.b64encode(pdf_content.encode('utf-8')).decode('utf-8')
-    html = create_download_link(pdf_content(dest="S").encode("latin-1"), "test")
+    html = create_download_link(pdf_content.encode('utf-8')).decode('utf-8')
     # Display PDF in Streamlit app
     st.markdown(html, unsafe_allow_html=True)
