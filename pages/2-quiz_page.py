@@ -10,9 +10,9 @@ new_q = st.button("สร้างแบบทดสอบใหม่")
 if new_q:
     switch_page("streamlit_app")
 
-q_answer = st.button("เปิดเฉลยแบบทดสอบ")
+q_answer = st.button("เฉลย")
 if q_answer:
-    switch_page("streamlit_app")
+    switch_page("quiz_anwser_page")
 
 with st.container():
     st.title("แบบทดสอบ")

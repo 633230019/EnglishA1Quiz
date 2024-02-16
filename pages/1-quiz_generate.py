@@ -9,10 +9,7 @@ from streamlit_extras.switch_page_button import switch_page
 
 st.header("สร้างแบบทดสอบเรียบร้อย")
 
-quiz = st.button("เปิดแบบทดสอบ")
+quiz = st.button("เปิด")
 if quiz:
     switch_page("quiz_page")
-    
-quiz = st.button("เปิดเฉลย")
-if quiz:
-    switch_page("quiz_answer_page")
+
