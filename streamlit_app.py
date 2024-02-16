@@ -24,4 +24,7 @@ q_type = st.selectbox(
 create_quiz = st.button("สร้างแบบทดสอบ")
 if create_quiz:
     st.session_state.Quiz = generate_quiz(Num_quiz, Num_choice, df_Sent, df_Word)
-    switch_page("1-quiz_generate")
+    #switch_page("1-quiz_generate")
+
+st.markdown('<a href="/next_page" target="_self">1-quiz_generate</a>', unsafe_allow_html=True)
+    
