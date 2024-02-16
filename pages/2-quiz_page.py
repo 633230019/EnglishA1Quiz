@@ -72,12 +72,12 @@ with st.container(border=True):
                     correct_anwser = f"**{choice_order}. {c}**"
             st.markdown(f"{i}.&nbsp;{question}&nbsp;&nbsp;&nbsp;&nbsp;{correct_anwser}")
 
-col1, col2 = st.columns(2)
-with col1:
+coldl, colnew = st.columns(2)
+with coldl:
     download = st.button("ดาวน์โหลดแบบทดสอบ")
     if download:
         #
-with col2:
+with colnew:
     new_q = st.button("สร้างแบบทดสอบใหม่")
     if new_q:
         switch_page("streamlit_app")
