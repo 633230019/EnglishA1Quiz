@@ -21,10 +21,9 @@ with st.container(border=True):
             with col1:
                 st.markdown(f"**{q_type}**")
             with col2:
-                st.markdown(f"**จำนวน {Num_choice} ข้อ**")
-            
+                st.markdown(f"**จำนวน {Num_quiz} ข้อ**")
 
-
+        st.markdown("**คำชี้แจง**  เลือกคำตอบที่ถูกต้องที่สุดเพียงคำตอบเดียวลงในกระดาษคำตอบ")
         quiz_list = st.session_state.Quiz
         for i, q in enumerate(quiz_list, 1):
             question = q["question"]
