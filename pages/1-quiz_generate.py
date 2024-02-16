@@ -7,7 +7,7 @@ from utils.func import generate_quiz
 from streamlit_extras.switch_page_button import switch_page
 
 Num_quiz = len(st.session_state.Quiz)
-Num_choice = len(st.session_state.Quiz["choices"])
+Num_choice = len(st.session_state.Quiz[0]["choices"])
 q_type = 'ทดสอบความรู้คำศัพท์ทั่วไป'
 
 with st.container(border=True):
