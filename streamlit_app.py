@@ -11,8 +11,7 @@ df_Word=pd.read_csv("./data/oxford_a1.csv")
 
 st.header("สร้างแบบทดสอบภาษาอังกฤษระดับป.6")
 
-Num_quiz = st.number_input('ระบุจำนวนข้อแบบทดสอบที่ต้องการสร้าง',
-min_value=1, max_value=100, value=int, key="Num_quiz")
+Num_quiz = st.number_input('ระบุจำนวนข้อแบบทดสอบที่ต้องการสร้าง', key="Num_quiz")
 
     
 Num_choice = st.session_state.Num_choice = st.selectbox(
