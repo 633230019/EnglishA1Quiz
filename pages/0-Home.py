@@ -3,7 +3,7 @@ import spacy
 import random
 import pandas as pd
 from spacy.tokens import Token
-from util import generate_quiz
+from utils.func import generate_quiz
 from streamlit_extras.switch_page_button import switch_page
 
 df_Sent=pd.read_csv("./data/filtered_sentences_dataset_a1_20k.csv")
