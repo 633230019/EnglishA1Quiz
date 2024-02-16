@@ -31,7 +31,7 @@ with st.container(border=True):
                 # Convert the index j to an alphabetic character
                 choice_order = chr(ord('A') + j)
                 # Write the choice number and the choice text
-                st.markdown(f"&nbsp;&nbsp;{choice_order}.&nbsp{c}")
+                st.markdown(f"&nbsp;&nbsp;&nbsp;&nbsp;{choice_order}.&nbsp;{c}")
             
             # Add an empty line between questions
             st.write()
@@ -51,7 +51,7 @@ with st.container(border=True):
                 choice_order = chr(ord('A') + j)
                 if c == correct_answer:
                     correct_anwser = f"**{choice_order}. {c}**"
-            st.markdown(f" {i}. {question}    {correct_anwser}")
+            st.markdown(f"{i}.&nbsp;{question}&nbsp;&nbsp;&nbsp;&nbsp;{correct_anwser}")
             st.write()
 
 new_q = st.button("สร้างแบบทดสอบใหม่")
