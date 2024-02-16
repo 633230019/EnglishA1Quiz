@@ -20,7 +20,7 @@ Num_choice = st.session_state.Num_choice = st.selectbox(
     
 q_type = st.session_state.Quiz_Type = st.selectbox(
     'ระบุประเภทแบบทดสอบ',
-    ('ทดสอบความรู้คำศัพท์ทั่วไป'), key="q_type")
+    ('ทดสอบความรู้คำศัพท์ทั่วไป','ทดสอบความรู้ไวยากรณ์'), key="q_type")
 
 create_quiz = st.button("สร้างแบบทดสอบ")
 if create_quiz:
