@@ -26,8 +26,8 @@ q_type = st.selectbox(
     'ระบุประเภทแบบทดสอบ',
     ('ทดสอบความรู้คำศัพท์ทั่วไป','ทดสอบความรู้ไวยากรณ์'), key="q_type")
 
-col3 = st.column(1)
-with col3:
+col1 = st.columns(1)
+with col1:
     create_quiz = st.button("สร้างแบบทดสอบ")
     if create_quiz:
         st.session_state.Quiz = generate_quiz(Num_quiz, Num_choice, df_Sent, df_Word)
