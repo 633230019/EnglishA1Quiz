@@ -8,13 +8,7 @@ from streamlit_extras.switch_page_button import switch_page
 from fpdf import FPDF
 import base64
 
-new_q = st.button("สร้างแบบทดสอบใหม่")
-if new_q:
-    switch_page("streamlit_app")
 
-q_answer = st.button("เฉลย")
-if q_answer:
-    switch_page("quiz_answer_page")
 
 with st.container(border=True):
     tab1, tab2, = st.tabs(["แบบทดสอบ", "เฉลย"])
@@ -59,3 +53,7 @@ with st.container(border=True):
                     correct_anwser = f"**{choice_order}. {c}**"
             st.markdown(f" {i}. {question}    {correct_anwser}")
             st.write()
+
+new_q = st.button("สร้างแบบทดสอบใหม่")
+if new_q:
+    switch_page("streamlit_app")
