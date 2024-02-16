@@ -23,6 +23,7 @@ with st.container(border=True):
             st.markdown(f"**จำนวน {Num_quiz} ข้อ**")
         st.write('***')   
         st.markdown("**คำชี้แจง**: เลือกคำตอบที่ถูกต้องที่สุดเพียงคำตอบเดียวลงในกระดาษคำตอบ")
+        
         quiz_list = st.session_state.Quiz
         for i, q in enumerate(quiz_list, 1):
             question = q["question"]
@@ -37,9 +38,7 @@ with st.container(border=True):
                 choice_order = chr(ord('A') + j)
                 # Write the choice number and the choice text
                 st.markdown(f"&nbsp;&nbsp;&nbsp;&nbsp;{choice_order}.&nbsp;{c}")
-            
-            # Add an empty line between questions
-            st.write()
+        
     with tab2:
         st.subheader("เฉลยแบบทดสอบ")
         col1, col2 = st.columns([0.8, 0.2])
@@ -59,7 +58,6 @@ with st.container(border=True):
                 if c == correct_answer:
                     correct_anwser = f"**{choice_order}. {c}**"
             st.markdown(f"{i}.&nbsp;{question}&nbsp;&nbsp;&nbsp;&nbsp;{correct_anwser}")
-            st.write()
 
 new_q = st.button("สร้างแบบทดสอบใหม่")
 if new_q:
