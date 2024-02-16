@@ -16,14 +16,13 @@ with st.container(border=True):
     tab1, tab2, = st.tabs(["แบบทดสอบ", "เฉลย"])
     with tab1:
         st.subheader("แบบทดสอบภาษาอังกฤษระดับชั้นประถมศึกษาปีที่ 6")
-        with st.container(border=True):
-            col1, col2 = st.columns([0.8, 0.2])
-            with col1:
-                st.markdown(f"**{q_type}**")
-            with col2:
-                st.markdown(f"**จำนวน {Num_quiz} ข้อ**")
-
-        st.markdown("**คำชี้แจง**  เลือกคำตอบที่ถูกต้องที่สุดเพียงคำตอบเดียวลงในกระดาษคำตอบ")
+        col1, col2 = st.columns([0.8, 0.2])
+        with col1:
+            st.markdown(f"**{q_type}**")
+        with col2:
+            st.markdown(f"**จำนวน {Num_quiz} ข้อ**")
+        st.markdown("<hr>")    
+        st.markdown("**คำชี้แจง**: เลือกคำตอบที่ถูกต้องที่สุดเพียงคำตอบเดียวลงในกระดาษคำตอบ")
         quiz_list = st.session_state.Quiz
         for i, q in enumerate(quiz_list, 1):
             question = q["question"]
