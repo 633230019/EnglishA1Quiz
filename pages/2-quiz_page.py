@@ -38,3 +38,20 @@ for i, q in enumerate(quiz_list):
     # Add an empty line between questions
     st.write()
 
+
+def generate_pdf():
+    from fpdf import FPDF
+
+    pdf = FPDF()
+    pdf.add_page()
+    pdf.set_font("Arial", size=12)
+    pdf.cell(200, 10, txt="Welcome to Streamlit!", ln=1, align="C")
+    pdf.output("example.pdf")
+
+
+if st.button("Generate PDF"):
+    generate_pdf()
+    st.success("Generated example.pdf!")
+
+with open("example.pdf", "rb") as f:
+    st.download_button("Download pdf", f, "example.pdf")
