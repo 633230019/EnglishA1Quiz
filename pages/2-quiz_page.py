@@ -28,7 +28,7 @@ for i, q in enumerate(quiz_list, 1):
     choices = q["choices"]
     
     # Write the question number and the question text
-    st.markdown(f" {i + 1} .{question}")
+    st.markdown(f" {i} .{question}")
 
     # Iterate over the choices
     for j, c in enumerate(choices):
@@ -69,3 +69,5 @@ pdf_base64 = base64.b64encode(pdf_content.encode('utf-8')).decode('utf-8')
 
 # Display PDF in Streamlit app
 st.markdown(f'<embed src="data:application/pdf;base64,{pdf_base64}" width="700" height="1000"></embed>', unsafe_allow_html=True)
+if st.button("pdf"):
+    generate_pdf_content()

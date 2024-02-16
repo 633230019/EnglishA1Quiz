@@ -21,7 +21,7 @@ with st.container():
         """)
 
 quiz_list = st.session_state.Quiz
-for i, q in enumerate(quiz_list):
+for i, q in enumerate(quiz_list, 1):
     question = q["question"]
     choices = q["choices"]
     correct_answer = q["correct_answer"]
@@ -30,5 +30,5 @@ for i, q in enumerate(quiz_list):
         choice_order = chr(ord('A') + j)
         if c == correct_answer:
             correct_anwser = f"**{choice_order}. {c}**"
-    st.markdown(f" {i + 1}. {question}    {correct_anwser}")
+    st.markdown(f" {i}. {question}    {correct_anwser}")
     st.write()
