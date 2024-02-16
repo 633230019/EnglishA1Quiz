@@ -45,8 +45,8 @@ def generate_pdf():
     pdf = FPDF()
     pdf.add_page()
     pdf.set_font("Arial", size=12)
-    pdf.cell(200, 10, txt="Welcome to Streamlit!", ln=1, align="C")
-    pdf.output("example.pdf")
+    pdf.cell(200, 10, txt="English Quiz!", ln=1, align="C")
+    pdf.output("Quiz.pdf")
 
 
 if st.button("Generate PDF"):
@@ -54,3 +54,36 @@ if st.button("Generate PDF"):
 
 with open("example.pdf", "rb") as f:
     st.download_button("Download pdf", f, "example.pdf")
+
+# Create PDF
+pdf = FPDF()
+pdf.add_page()
+
+# Set font for the quiz
+pdf.set_font("Arial", size=12)
+
+# Add quiz title
+pdf.cell(200, 10, txt="แบบทดสอบ", ln=True, align="C")
+pdf.cell(200, 10, ln=True)
+
+# Add quiz questions and choices
+for i, question_data in enumerate(quiz_list, 1):
+    question = question_data["question"]
+    choices = question_data["choices"]
+    
+    # Add question number and text
+    pdf.cell(200, 10, txt=f"{i}. {question}", ln=True)
+    
+    # Add choices
+    for j, choice in enumerate(choices):
+        choice_letter = chr(ord('A') + j)
+        pdf.cell(10, 10, txt=f"{choice_letter}.", ln=False)
+        pdf.multi_cell(190, 10, txt=choice)
+    
+    # Add space between questions
+    pdf.cell(200, 10, ln=True)
+
+# Save PDF to file
+pdf.output("quiz.pdf")
+with open("example.pdf", "rb") as f:
+    st.download_button("Download pdf", f, "quiz.pdf")
