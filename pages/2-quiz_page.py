@@ -23,7 +23,7 @@ with st.container():
         """)
 
 quiz_list = st.session_state.Quiz
-for i, q in enumerate(quiz_list):
+for i, q in enumerate(quiz_list, 1):
     question = q["question"]
     choices = q["choices"]
     
@@ -41,43 +41,31 @@ for i, q in enumerate(quiz_list):
     st.write()
 
 
-def generate_pdf():
-
-    # Create PDF
-    pdf = FPDF()
-    pdf.add_page()
-
-    # Set font for the quiz
-    pdf.set_font("Arial", size=12)
-
-    # Add quiz title
-    pdf.cell(200, 10, txt="แบบทดสอบ", ln=True, align="C")
-    pdf.cell(200, 10, ln=True)
-
-    # Add quiz questions and choices
+def generate_pdf_content():
+    # Generate PDF content
+    pdf_content = "แบบทดสอบ\n\n"
     for i, question_data in enumerate(quiz_list, 1):
         question = question_data["question"]
         choices = question_data["choices"]
         
         # Add question number and text
-        pdf.cell(200, 10, txt=f"{i}. {question}", ln=True)
+        pdf_content += f"{i}. {question}\n"
         
         # Add choices
         for j, choice in enumerate(choices):
             choice_letter = chr(ord('A') + j)
-            pdf.cell(10, 10, txt=f"{choice_letter}.", ln=False)
-            pdf.multi_cell(190, 10, txt=choice)
+            pdf_content += f"{choice_letter}. {choice}\n"
         
         # Add space between questions
-        pdf.cell(200, 10, ln=True)
+        pdf_content += "\n"
+    
+    return pdf_content
 
-    pdf_bytes = pdf.output(dest='S').encode('latin1')
+# Generate PDF content
+pdf_content = generate_pdf_content()
 
-    # Encode PDF bytes into Base64
-    pdf_base64 = base64.b64encode(pdf_bytes).decode('utf-8')
-    st.markdown(f'<embed src="data:application/pdf;base64,{pdf_base64}" width="700" height="1000"></embed>', unsafe_allow_html=True)
+# Encode PDF content to Base64
+pdf_base64 = base64.b64encode(pdf_content.encode('utf-8')).decode('utf-8')
 
-
-
-if st.button("Generate PDF"):
-    generate_pdf()
+# Display PDF in Streamlit app
+st.markdown(f'<embed src="data:application/pdf;base64,{pdf_base64}" width="700" height="1000"></embed>', unsafe_allow_html=True)
