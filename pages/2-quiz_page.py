@@ -53,7 +53,7 @@ if st.button("Generate PDF"):
     generate_pdf()
 
 with open("example.pdf", "rb") as f:
-    st.download_button("Download pdf", f, "example.pdf")
+    st.download_button("Downloada pdf", f, "example.pdf")
 
 # Create PDF
 pdf = FPDF()
