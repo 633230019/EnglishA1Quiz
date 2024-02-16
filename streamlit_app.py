@@ -11,7 +11,7 @@ df_Sent=pd.read_csv("./data/filtered_sentences_dataset_a1_20k.csv")
 df_Word=pd.read_csv("./data/oxford_a1.csv")
 
 
-st.header("สร้างแบบทดสอบภาษาอังกฤษระดับป.6")
+st.header("สร้างแบบทดสอบภาษาอังกฤษระดับชั้นประถมศึกษาปีที่ 6")
 
 col1, col2 = st.columns(2)
 
