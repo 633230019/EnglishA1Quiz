@@ -24,14 +24,14 @@ with st.container(border=True):
             choices = q["choices"]
             
             # Write the question number and the question text
-            st.markdown(f"{i}.&nbsp{question}")
+            st.markdown(f"{i}.&nbsp;{question}")
 
             # Iterate over the choices
             for j, c in enumerate(choices):
                 # Convert the index j to an alphabetic character
                 choice_order = chr(ord('A') + j)
                 # Write the choice number and the choice text
-                st.markdown(f"&nbsp&nbsp{choice_order}.&nbsp{c}")
+                st.markdown(f"&nbsp;&nbsp;{choice_order}.&nbsp{c}")
             
             # Add an empty line between questions
             st.write()
