@@ -75,8 +75,6 @@ with st.container(border=True):
 coldl, colnew = st.columns(2)
 with coldl:
     download = st.button("ดาวน์โหลดแบบทดสอบ")
-    if download:
-        #
 with colnew:
     new_q = st.button("สร้างแบบทดสอบใหม่")
     if new_q:
