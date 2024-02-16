@@ -14,11 +14,11 @@ st.header("สร้างแบบทดสอบภาษาอังกฤษ
 Num_quiz = st.number_input('ระบุจำนวนข้อแบบทดสอบที่ต้องการสร้าง', key="Num_quiz")
 
     
-Num_choice = st.session_state.Num_choice = st.selectbox(
+Num_choice = st.selectbox(
     'ระบุจำนวนตัวเลือกของแต่ละข้อแบบทดสอบ',
     ('2','3','4','5'), key="Num_choice")
     
-q_type = st.session_state.Quiz_Type = st.selectbox(
+q_type = st.selectbox(
     'ระบุประเภทแบบทดสอบ',
     ('ทดสอบความรู้คำศัพท์ทั่วไป','ทดสอบความรู้ไวยากรณ์'), key="q_type")
 
