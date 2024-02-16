@@ -13,11 +13,11 @@ st.header("สร้างแบบทดสอบเรียบร้อย")
 
 quiz = st.button("เปิดแบบทดสอบ")
 if quiz:
-    switch_page("2-quiz_page")
+    switch_page("quiz_page")
     
 quiz = st.button("เปิดเฉลย")
 if quiz:
-    switch_page("3-quiz_answer_page")
+    switch_page("quiz_answer_page")
 
 st.markdown('<a href="/quiz_page" target="_self">quiz_page</a>', unsafe_allow_html=True)
 st.markdown('<a href="/quiz_answer_page" target="_self">quiz_answer_page</a>', unsafe_allow_html=True)
