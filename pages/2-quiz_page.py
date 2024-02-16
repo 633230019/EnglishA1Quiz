@@ -26,14 +26,14 @@ for i, q in enumerate(quiz_list):
     choices = q["choices"]
     
     # Write the question number and the question text
-    st.text(f" {i + 1} .{question}")
+    st.markdown(f" {i + 1} .{question}")
 
     # Iterate over the choices
     for j, c in enumerate(choices):
         # Convert the index j to an alphabetic character
         choice_order = chr(ord('A') + j)
         # Write the choice number and the choice text
-        st.text(f"{choice_order}. {c}")
+        st.markdown(f"{choice_order}. {c}")
     
     # Add an empty line between questions
     st.write()
