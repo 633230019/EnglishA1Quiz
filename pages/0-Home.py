@@ -1,10 +1,10 @@
-from genquiz import generate_quiz
 import streamlit as st
-from streamlit_extras.switch_page_button import switch_page
 import spacy
 import random
 import pandas as pd
 from spacy.tokens import Token
+from util import generate_quiz
+from streamlit_extras.switch_page_button import switch_page
 
 df_Sent=pd.read_csv("./data/filtered_sentences_dataset_a1_20k.csv")
 df_Word=pd.read_csv("./data/oxford_a1.csv")
