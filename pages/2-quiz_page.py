@@ -41,7 +41,7 @@ with st.container(border=True):
             # Add an empty line between questions
             st.write()
     with tab2:
-        st.subheader("เฉลยแบบทดสอบภาษาอังกฤษระดับชั้นประถมศึกษาปีที่ 6")
+        st.subheader("เฉลยแบบทดสอบ")
         col1, col2 = st.columns([0.8, 0.2])
         with col1:
             st.markdown(f"**{q_type}**")
