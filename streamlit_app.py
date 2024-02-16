@@ -10,17 +10,7 @@ from streamlit_extras.stylable_container import stylable_container
 df_Sent=pd.read_csv("./data/filtered_sentences_dataset_a1_20k.csv")
 df_Word=pd.read_csv("./data/oxford_a1.csv")
 
-with stylable_container(
-    key="home_container",
-    css_styles="""
-        {
-            background-color: rgba(255, 255, 255, 1)
-            border: 1px solid rgba(49, 51, 63, 0.2);
-            border-radius: 0.5rem;
-            padding: calc(1em - 1px)
-        }
-        """,
-):
+with st.container(border=True):
     st.header("สร้างแบบทดสอบภาษาอังกฤษระดับชั้นประถมศึกษาปีที่ 6")
     st.markdown("#")
     col1, col2 = st.columns(2)
