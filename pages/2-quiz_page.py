@@ -5,6 +5,7 @@ import pandas as pd
 from spacy.tokens import Token
 from utils.func import generate_quiz
 from streamlit_extras.switch_page_button import switch_page
+from fpdf import FPDF
 
 new_q = st.button("สร้างแบบทดสอบใหม่")
 if new_q:
@@ -40,7 +41,6 @@ for i, q in enumerate(quiz_list):
 
 
 def generate_pdf():
-    from fpdf import FPDF
 
     pdf = FPDF()
     pdf.add_page()
