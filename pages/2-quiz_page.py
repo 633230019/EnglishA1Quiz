@@ -51,7 +51,6 @@ def generate_pdf():
 
 if st.button("Generate PDF"):
     generate_pdf()
-    st.success("Generated example.pdf!")
 
 with open("example.pdf", "rb") as f:
     st.download_button("Download pdf", f, "example.pdf")
