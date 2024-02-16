@@ -28,7 +28,7 @@ for i, q in enumerate(quiz_list, 1):
     choices = q["choices"]
     
     # Write the question number and the question text
-    st.markdown(f" {i} .{question}")
+    st.markdown(f" {i}.{question}")
 
     # Iterate over the choices
     for j, c in enumerate(choices):
@@ -61,9 +61,14 @@ def generate_pdf_content():
     
     return pdf_content
 
+def create_download_link(val, filename):
+    b64 = base64.b64encode(val)  # val looks like b'...'
+    return f'<a href="data:application/octet-stream;base64,{b64.decode()}" download="{filename}.pdf">Download file</a>'
+
 downloadpd = st.button("pdf")
 if downloadpd:
     pdf_content = generate_pdf_content()
     pdf_base64 = base64.b64encode(pdf_content.encode('utf-8')).decode('utf-8')
+    html = create_download_link(pdf_content(dest="S").encode("latin-1"), "test")
     # Display PDF in Streamlit app
-    st.markdown(f'<embed src="data:application/pdf;base64,{pdf_base64}" width="700" height="1000"></embed>', unsafe_allow_html=True)
+    st.markdown(html, unsafe_allow_html=True)
