@@ -10,7 +10,7 @@ import base64
 
 Num_quiz = len(st.session_state.Quiz)
 Num_choice = len(st.session_state.Quiz[0]["choices"])
-q_type = 'แบบทดสอบความรู้คำศัพท์ทั่วไป'
+q_type = 'ประเภท: ความรู้คำศัพท์ทั่วไป'
 
 with st.container(border=True):
     tab1, tab2, = st.tabs(["แบบทดสอบ", "เฉลย"])
@@ -19,7 +19,7 @@ with st.container(border=True):
         with st.container(border=True):
             col1, col2 = st.columns([0.8, 0.2])
             with col1:
-                st.markdown(**q_type**)
+                st.markdown(f"**{q_type}**")
             with col2:
                 st.markdown(f"**จำนวน {Num_choice} ข้อ**")
             
