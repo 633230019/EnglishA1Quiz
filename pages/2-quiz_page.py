@@ -26,7 +26,7 @@ for i, q in enumerate(quiz_list):
     choices = q["choices"]
     
     # Write the question number and the question text
-    st.write(f"{i + 1}. {question}")
+    st.write(f"{i + 1}.{question}")
 
     # Iterate over the choices
     for j, c in enumerate(choices):

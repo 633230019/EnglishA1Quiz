@@ -30,5 +30,5 @@ for i, q in enumerate(quiz_list):
         choice_order = chr(ord('A') + j)
         if c == correct_answer:
             correct_anwser = f"**{choice_order}. {c}**"
-    st.write(f"{i + 1}. {question} คำตอบ: {correct_anwser}")
+    st.write(f"{i + 1}.{question}    {correct_anwser}")
     st.write()
