@@ -1,4 +1,5 @@
 pandas
+random
 streamlit
 streamlit-extras
 spacy==3.7.2
