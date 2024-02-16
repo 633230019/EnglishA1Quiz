@@ -65,10 +65,10 @@ def generate_pdf_content():
 # Generate PDF content
 pdf_content = generate_pdf_content()
 
-# Save PDF content to a file
-with open("quiz.pdf", "wb") as f:
+file_path = "quiz.pdf"
+with open(file_path, "wb") as f:
     f.write(pdf_content.encode("utf-8"))
 
 # Provide a download link for the PDF
 st.markdown("### Download PDF")
-st.markdown("[Download PDF](./quiz.pdf)", unsafe_allow_html=True)
+st.markdown(f"[Download PDF](data:application/pdf;base64,{base64.b64encode(pdf_content.encode('utf-8')).decode()})", unsafe_allow_html=True)
