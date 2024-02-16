@@ -26,6 +26,7 @@ q_type = st.selectbox(
     'ระบุประเภทแบบทดสอบ',
     ('ทดสอบความรู้คำศัพท์ทั่วไป','ทดสอบความรู้ไวยากรณ์'), key="q_type")
 
+st.markdown("#")
 columns = st.columns((1, 1, 1))
 button_pressed = columns[1].button('สร้างแบบทดสอบ')
 
