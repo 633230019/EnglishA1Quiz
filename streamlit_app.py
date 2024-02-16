@@ -12,7 +12,8 @@ df_Word=pd.read_csv("./data/oxford_a1.csv")
 
 
 st.header("สร้างแบบทดสอบภาษาอังกฤษระดับชั้นประถมศึกษาปีที่ 6")
-
+st.markdown("#")
+st.markdown("#")
 col1, col2 = st.columns(2)
 
 with col1:
@@ -26,6 +27,7 @@ q_type = st.selectbox(
     'ระบุประเภทแบบทดสอบ',
     ('ทดสอบความรู้คำศัพท์ทั่วไป','ทดสอบความรู้ไวยากรณ์'), key="q_type")
 
+st.markdown("#")
 st.markdown("#")
 columns = st.columns((1, 1, 1))
 button_pressed = columns[1].button('สร้างแบบทดสอบ')
