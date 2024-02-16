@@ -24,5 +24,5 @@ q_type = st.selectbox(
 
 create_quiz = st.button("สร้างแบบทดสอบ")
 if create_quiz:
-    st.session_state.Quiz = generate_quiz(st.session_state.Num_quiz, st.session_state.Num_choice, df_Sent, df_Word)
-    switch_page("1-quiz_generate")
+    st.session_state.Quiz = generate_quiz(Num_quiz, Num_choice, df_Sent, df_Word)
+    #switch_page("1-quiz_generate")
