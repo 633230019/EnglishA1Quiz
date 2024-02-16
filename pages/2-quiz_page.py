@@ -61,13 +61,9 @@ def generate_pdf_content():
     
     return pdf_content
 
-# Generate PDF content
-pdf_content = generate_pdf_content()
-
-# Encode PDF content to Base64
-pdf_base64 = base64.b64encode(pdf_content.encode('utf-8')).decode('utf-8')
-
-# Display PDF in Streamlit app
-st.markdown(f'<embed src="data:application/pdf;base64,{pdf_base64}" width="700" height="1000"></embed>', unsafe_allow_html=True)
-if st.button("pdf"):
-    generate_pdf_content()
+downloadpd = st.button("pdf")
+if downloadpd:
+    pdf_content = generate_pdf_content()
+    pdf_base64 = base64.b64encode(pdf_content.encode('utf-8')).decode('utf-8')
+    # Display PDF in Streamlit app
+    st.markdown(f'<embed src="data:application/pdf;base64,{pdf_base64}" width="700" height="1000"></embed>', unsafe_allow_html=True)
