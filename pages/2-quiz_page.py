@@ -41,11 +41,13 @@ with st.container(border=True):
             # Add an empty line between questions
             st.write()
     with tab2:
-        st.subheader("เฉลย")
-        st.markdown("""
-            ---
-            """)
-
+        st.subheader("เฉลยแบบทดสอบภาษาอังกฤษระดับชั้นประถมศึกษาปีที่ 6")
+        col1, col2 = st.columns([0.8, 0.2])
+        with col1:
+            st.markdown(f"**{q_type}**")
+        with col2:
+            st.markdown(f"**จำนวน {Num_quiz} ข้อ**")
+        st.write('***')   
         quiz_list = st.session_state.Quiz
         for i, q in enumerate(quiz_list, 1):
             question = q["question"]
