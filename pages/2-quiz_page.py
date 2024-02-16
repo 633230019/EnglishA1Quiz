@@ -6,7 +6,13 @@ from spacy.tokens import Token
 from utils.func import generate_quiz
 from streamlit_extras.switch_page_button import switch_page
 
+new_q = st.button("สร้างแบบทดสอบใหม่")
+if new_q:
+    switch_page("streamlit_app")
 
+q_answer = st.button("เปิดเฉลยแบบทดสอบ")
+if q_answer:
+    switch_page("streamlit_app")
 
 with st.container():
     st.title("แบบทดสอบ")
