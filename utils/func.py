@@ -22,6 +22,19 @@ def generate_quiz(num_quiz, num_choice, df_Sent, df_Word):
     else:
       return False
 
+  def format_pos(token):
+    token = token.pos_
+    if token == "NOUN":
+      return "noun"
+    if token == "VERB":
+      return "verb"
+    if token == "ADJ":
+      return "adjective"
+    if token == "ADV":
+      return "adverb"
+    else:
+      return token
+  
   def get_wrong_choices(token,num_choices):
     pos_list = ["noun", "verb", "adjective", "adverb"] #สุ่มเฉพาะ Part of speech ใน list
     pos_list.remove(format_pos(token)) #ลบ Part of speech ของ Token ออกจาก list
