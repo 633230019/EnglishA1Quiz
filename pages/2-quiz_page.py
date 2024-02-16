@@ -43,7 +43,7 @@ for i, q in enumerate(quiz_list):
 def generate_pdf():
 
     # Create PDF
-    pdf = FPDF()
+    pdf = FPDF(orientation='P', unit='mm', format='A4', encoding='UTF-8')
     pdf.add_page()
 
     # Set font for the quiz
