@@ -28,7 +28,7 @@ colbutton, colquiz = st.columns([0.1,0.9])
 with colbutton:
     new_q = st.button("สร้างแบบทดสอบใหม่")
     if new_q:
-    switch_page("streamlit_app")
+        switch_page("streamlit_app")
 
 with colquiz:
     with st.container(border=True):
