@@ -31,5 +31,8 @@ with st.container(border=True):
     button_pressed = columns[1].button('สร้างแบบทดสอบ')
 
     if button_pressed:
+        st.session_state.Num_quiz = Num_quiz
+        st.session_state.Num_choice = Num_choice
+        st.session_state.q_type = q_type
         st.session_state.Quiz = generate_quiz(Num_quiz, Num_choice, df_Sent, df_Word)
         switch_page("quiz_generate")
