@@ -16,59 +16,46 @@ q_answer = st.button("เฉลย")
 if q_answer:
     switch_page("quiz_answer_page")
 
-with st.container():
-    st.title("แบบทดสอบ")
-    st.markdown("""
-        ---
-        """)
+with st.container(border=True):
+    tab1, tab2, = st.tabs(["แบบทดสอบ", "เฉลย"])
 
-quiz_list = st.session_state.Quiz
-for i, q in enumerate(quiz_list, 1):
-    question = q["question"]
-    choices = q["choices"]
-    
-    # Write the question number and the question text
-    st.markdown(f" {i}.{question}")
+    with tab1:
+        st.title("แบบทดสอบ")
+        st.markdown("""
+            ---
+            """)
+        quiz_list = st.session_state.Quiz
+        for i, q in enumerate(quiz_list, 1):
+            question = q["question"]
+            choices = q["choices"]
+            
+            # Write the question number and the question text
+            st.markdown(f" {i}.{question}")
 
-    # Iterate over the choices
-    for j, c in enumerate(choices):
-        # Convert the index j to an alphabetic character
-        choice_order = chr(ord('A') + j)
-        # Write the choice number and the choice text
-        st.markdown(f"{choice_order}. {c}")
-    
-    # Add an empty line between questions
-    st.write()
+            # Iterate over the choices
+            for j, c in enumerate(choices):
+                # Convert the index j to an alphabetic character
+                choice_order = chr(ord('A') + j)
+                # Write the choice number and the choice text
+                st.markdown(f"{choice_order}. {c}")
+            
+            # Add an empty line between questions
+            st.write()
+    with tab2:
+        st.title("เฉลย")
+        st.markdown("""
+            ---
+            """)
 
-
-def generate_pdf_content():
-
-    # Generate PDF content
-    pdf_content = "แบบทดสอบ\n\n"
-    for i, question_data in enumerate(quiz_list, 1):
-        question = question_data["question"]
-        choices = question_data["choices"]
-        
-        # Add question number and text
-        pdf_content += f"{i}. {question}\n"
-        
-        # Add choices
-        for j, choice in enumerate(choices):
-            choice_letter = chr(ord('A') + j)
-            pdf_content += f"{choice_letter}. {choice}\n"
-        
-        # Add space between questions
-        pdf_content += "\n"
-    
-    return pdf_content
-
-# Generate PDF content
-pdf_content = generate_pdf_content()
-
-file_path = "quiz.pdf"
-with open(file_path, "wb") as f:
-    f.write(pdf_content.encode("utf-8"))
-
-# Provide a download link for the PDF
-st.markdown("### Download PDF")
-st.markdown(f"[Download PDF](data:application/pdf;base64,{base64.b64encode(pdf_content.encode('utf-8')).decode()})", unsafe_allow_html=True)
+        quiz_list = st.session_state.Quiz
+        for i, q in enumerate(quiz_list, 1):
+            question = q["question"]
+            choices = q["choices"]
+            correct_answer = q["correct_answer"]
+            
+            for j, c in enumerate(choices):
+                choice_order = chr(ord('A') + j)
+                if c == correct_answer:
+                    correct_anwser = f"**{choice_order}. {c}**"
+            st.markdown(f" {i}. {question}    {correct_anwser}")
+            st.write()
