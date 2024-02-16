@@ -24,7 +24,7 @@ Num_quiz = len(st.session_state.Quiz)
 Num_choice = len(st.session_state.Quiz[0]["choices"])
 q_type = 'ประเภท: ความรู้คำศัพท์ทั่วไป'
 
-colbutton, colquiz = st.columns([0.1,0.9])
+colbutton, colquiz = st.columns([0.3,0.7],gap="medium")
 with colbutton:
     new_q = st.button("สร้างแบบทดสอบใหม่")
     if new_q:
