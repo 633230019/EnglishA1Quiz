@@ -76,13 +76,8 @@ def generate_pdf():
     # Encode PDF bytes into Base64
     pdf_base64 = base64.b64encode(pdf_bytes).decode('utf-8')
     st.markdown(f'<embed src="data:application/pdf;base64,{pdf_base64}" width="700" height="1000"></embed>', unsafe_allow_html=True)
-    # Save PDF to file
-    pdf.output("quiz.pdf")
 
 
 
 if st.button("Generate PDF"):
     generate_pdf()
-
-with open("example.pdf", "rb") as f:
-    st.download_button("Download pdf", f, "quiz.pdf")
