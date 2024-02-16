@@ -37,7 +37,7 @@ with st.container(border=True):
                 # Convert the index j to an alphabetic character
                 choice_order = chr(ord('A') + j)
                 # Write the choice number and the choice text
-                st.text(f"    {choice_order}. {c}")
+                st.markdown(f"&nbsp;&nbsp;&nbsp;&nbsp;{choice_order}.&nbsp;{c}")
         
     with tab2:
         st.subheader("เฉลยแบบทดสอบ")
