@@ -6,6 +6,9 @@ from spacy.tokens import Token
 from utils.func import generate_quiz
 from streamlit_extras.switch_page_button import switch_page
 
+for k, v in st.session_state.to_dict().items():
+   st.session_state[k] = v
+
 with st.container():
     st.title("เฉลย")
     st.markdown("""
