@@ -5,6 +5,14 @@ import pandas as pd
 from spacy.tokens import Token
 from utils.func import generate_quiz
 from streamlit_extras.switch_page_button import switch_page
+from streamlit_extras.card import card
+
+hasClicked = card(
+  title="Hello World!",
+  text="Some description",
+  image="http://placekitten.com/200/300",
+  url="https://github.com/gamcoh/st-card"
+)
 
 df_Sent=pd.read_csv("./data/filtered_sentences_dataset_a1_20k.csv")
 df_Word=pd.read_csv("./data/oxford_a1.csv")
