@@ -6,6 +6,7 @@ from spacy.tokens import Token
 from utils.func import generate_quiz
 from streamlit_extras.switch_page_button import switch_page
 from fpdf import FPDF
+import base64
 
 new_q = st.button("สร้างแบบทดสอบใหม่")
 if new_q:
@@ -43,7 +44,7 @@ for i, q in enumerate(quiz_list):
 def generate_pdf():
 
     # Create PDF
-    pdf = FPDF(orientation='P', unit='mm', format='A4', encoding='UTF-8')
+    pdf = FPDF()
     pdf.add_page()
 
     # Set font for the quiz
@@ -70,8 +71,14 @@ def generate_pdf():
         # Add space between questions
         pdf.cell(200, 10, ln=True)
 
+    pdf_bytes = pdf.output(dest='S').encode('latin1')
+
+    # Encode PDF bytes into Base64
+    pdf_base64 = base64.b64encode(pdf_bytes).decode('utf-8')
+    st.markdown(f'<embed src="data:application/pdf;base64,{pdf_base64}" width="700" height="1000"></embed>', unsafe_allow_html=True)
     # Save PDF to file
     pdf.output("quiz.pdf")
+
 
 
 if st.button("Generate PDF"):
