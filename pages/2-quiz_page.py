@@ -16,7 +16,7 @@ with st.container(border=True):
     with tab1:
         st.subheader("แบบทดสอบภาษาอังกฤษระดับชั้นประถมศึกษาปีที่ 6")
         st.markdown("""
-            ---
+            -
             """)
         quiz_list = st.session_state.Quiz
         for i, q in enumerate(quiz_list, 1):
