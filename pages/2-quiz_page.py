@@ -14,7 +14,7 @@ with st.container(border=True):
     tab1, tab2, = st.tabs(["แบบทดสอบ", "เฉลย"])
 
     with tab1:
-        st.title("แบบทดสอบ")
+        st.subheader("แบบทดสอบ")
         st.markdown("""
             ---
             """)
@@ -36,7 +36,7 @@ with st.container(border=True):
             # Add an empty line between questions
             st.write()
     with tab2:
-        st.title("เฉลย")
+        st.subheader("เฉลย")
         st.markdown("""
             ---
             """)
