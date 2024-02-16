@@ -42,7 +42,7 @@ for i, q in enumerate(quiz_list, 1):
 
 
 def generate_pdf_content():
-    
+
     # Generate PDF content
     pdf_content = "แบบทดสอบ\n\n"
     for i, question_data in enumerate(quiz_list, 1):
@@ -62,16 +62,13 @@ def generate_pdf_content():
     
     return pdf_content
 
-# Define a function to create a download link for the PDF
-def create_download_link(val, filename):
-    b64 = base64.b64encode(val.encode('utf-8'))  # val should be encoded to bytes
-    return f'<a href="data:application/octet-stream;base64,{b64.decode()}" download="{filename}.pdf">Download file</a>'
-
 # Generate PDF content
 pdf_content = generate_pdf_content()
 
-# Create a download link for the PDF
-download_link = create_download_link(pdf_content, "quiz")
+# Save PDF content to a file
+with open("quiz.pdf", "wb") as f:
+    f.write(pdf_content.encode("utf-8"))
 
-# Display the download link in Streamlit app
-st.markdown(download_link, unsafe_allow_html=True)
+# Provide a download link for the PDF
+st.markdown("### Download PDF")
+st.markdown("[Download PDF](./quiz.pdf)", unsafe_allow_html=True)
