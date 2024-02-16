@@ -29,7 +29,7 @@ with st.container(border=True):
 
     with col1:
         Num_quiz = st.number_input('ระบุจำนวนข้อแบบทดสอบที่ต้องการสร้าง', 
-                                min_value=1, max_value=100, value=20, key="Num_quiz")
+                                min_value=1, max_value=100, value=10, key="Num_quiz")
     with col2:
         Num_choice = st.number_input('ระบุจำนวนตัวเลือกแบบทดสอบ', 
                                 min_value=2, max_value=5, value=4, key="Num_choice")
