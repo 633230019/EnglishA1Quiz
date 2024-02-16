@@ -12,7 +12,7 @@ if new_q:
 
 q_answer = st.button("เฉลย")
 if q_answer:
-    switch_page("quiz_anwser_page")
+    switch_page("quiz_answer_page")
 
 with st.container():
     st.title("แบบทดสอบ")
