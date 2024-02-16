@@ -8,7 +8,7 @@ from streamlit_extras.switch_page_button import switch_page
 
 Num_quiz = len(st.session_state.Quiz)
 Num_choice = len(st.session_state.Quiz[0]["choices"])
-q_type = 'ทดสอบความรู้คำศัพท์ทั่วไป'
+q_type = 'แบบทดสอบความรู้คำศัพท์ทั่วไป'
 
 with st.container(border=True):
     st.subheader("ข้อมูลแบบทดสอบ")

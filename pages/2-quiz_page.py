@@ -8,16 +8,23 @@ from streamlit_extras.switch_page_button import switch_page
 from fpdf import FPDF
 import base64
 
-
+Num_quiz = len(st.session_state.Quiz)
+Num_choice = len(st.session_state.Quiz[0]["choices"])
+q_type = 'แบบทดสอบความรู้คำศัพท์ทั่วไป'
 
 with st.container(border=True):
     tab1, tab2, = st.tabs(["แบบทดสอบ", "เฉลย"])
-
     with tab1:
         st.subheader("แบบทดสอบภาษาอังกฤษระดับชั้นประถมศึกษาปีที่ 6")
-        st.markdown("""
-            --
-            """)
+        with st.container(border=True):
+            col1, col2 = st.columns(0.7, 0.3)
+            with col1:
+                st.markdown(q_type)
+            with col2:
+                st.markdown(f"จำนวน {Num_choice} ข้อ")
+            
+
+
         quiz_list = st.session_state.Quiz
         for i, q in enumerate(quiz_list, 1):
             question = q["question"]
