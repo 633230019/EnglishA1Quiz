@@ -12,19 +12,26 @@ df_Word=pd.read_csv("./data/oxford_a1.csv")
 
 st.header("สร้างแบบทดสอบภาษาอังกฤษระดับป.6")
 with ui.card(key="card1"):
-    Num_quiz = st.number_input('ระบุจำนวนข้อแบบทดสอบที่ต้องการสร้าง', 
-                            min_value=1, max_value=100, value=20, key="Num_quiz")
+    ui.element("span", children=["Email"], className="text-gray-400 text-sm font-medium m-1", key="label1")
+    ui.element("input", key="email_input", placeholder="Your email")
 
-    Num_choice = st.number_input('ระบุจำนวนข้อแบบทดสอบที่ต้องการสร้าง', 
-                            min_value=2, max_value=5, value=4, key="Num_choice")
-        
-    q_type = st.selectbox(
-        'ระบุประเภทแบบทดสอบ',
-        ('ทดสอบความรู้คำศัพท์ทั่วไป','ทดสอบความรู้ไวยากรณ์'), key="q_type")
+    ui.element("span", children=["User Name"], className="text-gray-400 text-sm font-medium m-1", key="label2")
+    ui.element("input", key="username_input", placeholder="Create a User Name")
+    ui.element("button", text="Submit", key="button", className="m-1")
+    
+Num_quiz = st.number_input('ระบุจำนวนข้อแบบทดสอบที่ต้องการสร้าง', 
+                        min_value=1, max_value=100, value=20, key="Num_quiz")
 
-    create_quiz = st.button("สร้างแบบทดสอบ")
-    if create_quiz:
-        st.session_state.Quiz = generate_quiz(Num_quiz, Num_choice, df_Sent, df_Word)
-        switch_page("quiz_generate")
+Num_choice = st.number_input('ระบุจำนวนข้อแบบทดสอบที่ต้องการสร้าง', 
+                        min_value=2, max_value=5, value=4, key="Num_choice")
+    
+q_type = st.selectbox(
+    'ระบุประเภทแบบทดสอบ',
+    ('ทดสอบความรู้คำศัพท์ทั่วไป','ทดสอบความรู้ไวยากรณ์'), key="q_type")
+
+create_quiz = st.button("สร้างแบบทดสอบ")
+if create_quiz:
+    st.session_state.Quiz = generate_quiz(Num_quiz, Num_choice, df_Sent, df_Word)
+    switch_page("quiz_generate")
 
     
