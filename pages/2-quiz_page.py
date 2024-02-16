@@ -17,11 +17,11 @@ with st.container(border=True):
     with tab1:
         st.subheader("แบบทดสอบภาษาอังกฤษระดับชั้นประถมศึกษาปีที่ 6")
         with st.container(border=True):
-            col1, col2 = st.columns([0.7, 0.3])
+            col1, col2 = st.columns([0.8, 0.2])
             with col1:
-                st.markdown(q_type)
+                st.markdown(**q_type**)
             with col2:
-                st.markdown(f"จำนวน {Num_choice} ข้อ")
+                st.markdown(f"**จำนวน {Num_choice} ข้อ**")
             
 
 
