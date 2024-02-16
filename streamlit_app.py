@@ -26,10 +26,8 @@ q_type = st.selectbox(
     'ระบุประเภทแบบทดสอบ',
     ('ทดสอบความรู้คำศัพท์ทั่วไป','ทดสอบความรู้ไวยากรณ์'), key="q_type")
 
-st.markdown("----", unsafe_allow_html=True)
 columns = st.columns((2, 1, 2))
 button_pressed = columns[1].button('สร้างแบบทดสอบ')
-st.markdown("----", unsafe_allow_html=True)
 
 if button_pressed:
     st.session_state.Quiz = generate_quiz(Num_quiz, Num_choice, df_Sent, df_Word)
