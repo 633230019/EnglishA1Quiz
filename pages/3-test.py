@@ -73,7 +73,7 @@ def gen_pdf():
             doc.set_font("THSarabunB", size=18)
             doc.write(8,f"    {correct_anwser}\n")
     
-    now = datetime.datetime.now()
+    now = datetime.now()
     timestamp = f"{now:%M%H_%d%m%y}"
     return bytes(pdf.output()), f"EnglishQuiz.pdf_{timestamp}"
 
