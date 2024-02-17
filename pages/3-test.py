@@ -18,7 +18,7 @@ def gen_pdf():
     pdf.add_font("THSarabun", fname="./data/THSarabun.ttf", uni=True)
     pdf.add_font("THSarabunB", fname="./data/THSarabun Bold.ttf", uni=True)
     pdf.set_margins(left=25, top=25, right=25)
-
+    
     pdf.set_font("THSarabunB",  size=24)
     pdf.cell(text=f"{10*' '}แบบทดสอบภาษาอังกฤษระดับชั้นประถมศึกษาปีที่ 6", ln=True, align='L')
 
@@ -26,8 +26,6 @@ def gen_pdf():
     pdf.cell(text=" ", ln=True, align='L')
     pdf.cell(text=f"{q_type}", align='L')
     pdf.cell(text=f"{55*' '}จำนวน {Num_quiz} ข้อ", ln=True, align='L')
-    pdf.cell(text=" ", ln=True, align='L')
-    
     pdf.set_font("THSarabunB",  size=18)
     pdf.cell(text="คำชี้แจง:", align='L')
     pdf.set_font("THSarabun", size=18)
@@ -37,15 +35,29 @@ def gen_pdf():
     for i, q in enumerate(quiz_list, 1):
         question = q["question"]
         choices = q["choices"]
-        
+        quiz = ""
         # Write the question number and the question text
-        pdf.cell(text=f"{i}. {question}", ln=True, align='L')
-
+        quiz += (text=f"{i}. {question}\n")
         for j, c in enumerate(choices):
             # Convert the index j to an alphabetic character
             choice_order = chr(ord('A') + j)
             # Write the choice number and the choice text
-            pdf.cell(text=f"    {choice_order}. {c}", ln=True, align='L')
+            quiz += f"    {choice_order}. {c}\n"
+        pdf.multi_cell(50, 5, quiz)
+
+    # for i, q in enumerate(quiz_list, 1):
+    #     question = q["question"]
+    #     choices = q["choices"]
+    #     quiz = ""
+    #     # Write the question number and the question text
+    #     pdf.cell(text=f"{i}. {question}", ln=True, align='L')
+
+    #     for j, c in enumerate(choices):
+    #         # Convert the index j to an alphabetic character
+    #         choice_order = chr(ord('A') + j)
+    #         # Write the choice number and the choice text
+    #         pdf.cell(text=f"    {choice_order}. {c}", ln=True, align='L')
+    #     pdf.multi_cell(50, 5, part)
     return bytes(pdf.output())
 
 # Embed PDF to display it:
