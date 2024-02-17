@@ -37,7 +37,7 @@ def gen_pdf():
         choices = q["choices"]
         quiz = ""
         # Write the question number and the question text
-        quiz += (text=f"{i}. {question}\n")
+        quiz += f"{i}. {question}\n"
         for j, c in enumerate(choices):
             # Convert the index j to an alphabetic character
             choice_order = chr(ord('A') + j)
