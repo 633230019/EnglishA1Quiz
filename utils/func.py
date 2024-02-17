@@ -7,6 +7,12 @@ import streamlit as st
 from spacy.tokens import Token
 nlp = spacy.load("en_core_web_sm")
 
+
+# comment
+# comment
+# comment
+# comment
+
 def generate_quiz(num_quiz, num_choice, df_Sent, df_Word):
 
   def get_random_sentences(df, num_sentences):
@@ -79,6 +85,8 @@ def generate_quiz(num_quiz, num_choice, df_Sent, df_Word):
     quiz_questions.append(quiz_question)
 
   return quiz_questions
+
+
 
 @st.cache_data
 def gen_pdf():

@@ -3,9 +3,7 @@ import pandas as pd
 from utils.func import generate_quiz
 from streamlit_extras.switch_page_button import switch_page
 
-df_Sent=pd.read_csv("./data/filtered_sentences_dataset_a1_20k.csv")
-df_Word=pd.read_csv("./data/oxford_a1.csv")
-
+#ซ่อน sidebar หน้าเว็บ
 st.set_page_config(initial_sidebar_state="collapsed")
 st.markdown(
     """
@@ -18,11 +16,18 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
+# ไฟล์แบบทดสอบ
+df_Sent=pd.read_csv("./data/filtered_sentences_dataset_a1_20k.csv")
+df_Word=pd.read_csv("./data/oxford_a1.csv")
+
+# กล่องข้อความ
 with st.container(border=True):
+
     st.header("สร้างแบบทดสอบภาษาอังกฤษระดับชั้นประถมศึกษาปีที่ 6")
     st.markdown("#")
-    col1, col2 = st.columns(2)
 
+    # number input จำนวนข้อ จำนวนตัวเลือก
+    col1, col2 = st.columns(2)
     with col1:
         Num_quiz = st.number_input('ระบุจำนวนข้อแบบทดสอบที่ต้องการสร้าง', 
                                 min_value=1, max_value=100, value=10, key="Num_quiz")
@@ -30,14 +35,17 @@ with st.container(border=True):
         Num_choice = st.number_input('ระบุจำนวนตัวเลือกแบบทดสอบ', 
                                 min_value=2, max_value=5, value=4, key="Num_choice")
         
+    # select box ประเภทแบบทดสอบ
     q_type = st.selectbox(
         'ระบุประเภทแบบทดสอบ',
         ('ทดสอบความรู้คำศัพท์ทั่วไป','ทดสอบความรู้ไวยากรณ์'), key="q_type")
-
     st.markdown("#")
+
+    # ปุ่มสร้างแบบทดสอบ
     columns = st.columns((1, 1, 1))
     button_pressed = columns[1].button('สร้างแบบทดสอบ')
 
+    # ปุ่มสร้างแบบทดสอบ ใช้ฟังชั่น generate_quiz() ในไฟล์ func.py
     if button_pressed:
         st.cache_data.clear()
         st.session_state.Quiz = generate_quiz(Num_quiz, Num_choice, df_Sent, df_Word)
