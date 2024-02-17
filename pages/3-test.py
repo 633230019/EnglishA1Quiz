@@ -72,8 +72,10 @@ def gen_pdf():
             doc.write(8,f"{i}. {question}\n")
             doc.set_font("THSarabunB", size=18)
             doc.write(8,f"    {correct_anwser}\n")
-
-    return bytes(pdf.output())
+    
+    now = datetime.datetime.now()
+    timestamp = f"{now:%M%H_%d%m%y}"
+    return bytes(pdf.output()), f"EnglishQuiz.pdf_{timestamp}"
 
 # Embed PDF to display it:
 base64_pdf = b64encode(gen_pdf()).decode("utf-8")
@@ -83,10 +85,9 @@ st.markdown(pdf_display, unsafe_allow_html=True)
 
 # Add a download button:
 st.download_button(
-    now = datetime.datetime.now()
-    timestamp = f"{now:%M%H_%d%m%y}"
+
     label="ดาวน์โหลดแบบทดสอบ",
-    data=gen_pdf(),
-    file_name=f"EnglishQuiz.pdf_{timestamp}",
+    data=gen_pdf()[0],
+    file_name=gen_pdf()[1],
     mime="application/pdf",
 )
