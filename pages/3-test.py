@@ -16,12 +16,12 @@ def gen_pdf():
     pdf = FPDF()
     pdf.add_page()
     pdf.set_font("Helvetica", size=24)
-    pdf.cell("แบบทดสอบภาษาอังกฤษระดับชั้นประถมศึกษาปีที่ 6", align='C')
+    pdf.cell(text="แบบทดสอบภาษาอังกฤษระดับชั้นประถมศึกษาปีที่ 6", align='C')
     pdf.Ln()
-    pdf.cell(q_type, align='L')
-    pdf.cell(Num_quiz, align='R')
+    pdf.cell(text=q_type, align='L')
+    pdf.cell(text=Num_quiz, align='R')
     pdf.Ln()
-    pdf.cell("คำชี้แจง: เลือกคำตอบที่ถูกต้องที่สุดเพียงคำตอบเดียวลงในกระดาษคำตอบ", align='L')
+    pdf.cell(text="คำชี้แจง: เลือกคำตอบที่ถูกต้องที่สุดเพียงคำตอบเดียวลงในกระดาษคำตอบ", align='L')
     for i, q in enumerate(quiz_list, 1):
         question = q["question"]
         choices = q["choices"]
@@ -34,7 +34,7 @@ def gen_pdf():
             # Convert the index j to an alphabetic character
             choice_order = chr(ord('A') + j)
             # Write the choice number and the choice text
-            pdf.cell(f"{:4}{choice_order}. {c}", align='L')
+            pdf.cell(text=f"    {choice_order}. {c}", align='L')
             pdf.Ln()
     return bytes(pdf.output())
 
