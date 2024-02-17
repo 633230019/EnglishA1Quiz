@@ -1,8 +1,4 @@
 import streamlit as st
-import spacy
-import random
-import pandas as pd
-from spacy.tokens import Token
 from utils.func import gen_pdf
 from streamlit_extras.switch_page_button import switch_page
 from base64 import b64encode
