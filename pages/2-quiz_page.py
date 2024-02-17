@@ -20,11 +20,7 @@ Num_quiz = len(st.session_state.Quiz)
 Num_choice = len(st.session_state.Quiz[0]["choices"])
 q_type = 'ประเภท: ความรู้คำศัพท์ทั่วไป'
 
-if Num_quiz is None or Num_choice is None or Num_choice is None:
-    new_q = st.button("สร้างแบบทดสอบใหม่")
-    if new_q:
-        switch_page("streamlit_app")
-else:
+try:
     with st.container(border=True):
         tab1, tab2, = st.tabs(["แบบทดสอบ", "เฉลย"])
         with tab1:
@@ -79,6 +75,10 @@ else:
         mime="application/pdf",
     )
 
+    new_q = st.button("สร้างแบบทดสอบใหม่")
+    if new_q:
+        switch_page("streamlit_app")
+except AttributeError:
     new_q = st.button("สร้างแบบทดสอบใหม่")
     if new_q:
         switch_page("streamlit_app")
