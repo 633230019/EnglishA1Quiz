@@ -52,12 +52,11 @@ try:
 
                 # สร้างตัวเลือกคำถาม
                 for j, c in enumerate(choices):
-                    # Convert the index j to an alphabetic character
+                    # แปลงข้อมูลเลขใน index j เป็นตัวอักษร
                     choice_order = chr(ord('A') + j)
-                    # Write the choice number and the choice text
                     st.markdown(f"&nbsp;&nbsp;&nbsp;&nbsp;{choice_order}.&nbsp;{c}")
             
-            
+
         with tab2: #เฉลย
             st.subheader("เฉลยแบบทดสอบ")
 
