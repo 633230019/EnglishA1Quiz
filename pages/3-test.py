@@ -18,25 +18,30 @@ def gen_pdf():
     pdf.add_font("THSarabun", fname="./data/THSarabun.ttf", uni=True)
     pdf.add_font("THSarabunB", fname="./data/THSarabun Bold.ttf", uni=True)
     pdf.set_margins(left=25, top=25, right=25)
+
     pdf.set_font("THSarabunB",  size=24)
     pdf.cell(text="แบบทดสอบภาษาอังกฤษระดับชั้นประถมศึกษาปีที่ 6", ln=True, align='C')
+
     pdf.set_font("THSarabun", size=18)
     pdf.cell(text=f"{q_type}", align='L')
     pdf.cell(text=f"{50*' '}จำนวน {Num_quiz} ข้อ", ln=True, align='L')
-    pdf.Line(25, pdf.get_y(), 575, pdf.get_y())
-    pdf.cell(text="คำชี้แจง: เลือกคำตอบที่ถูกต้องที่สุดเพียงคำตอบเดียวลงในกระดาษคำตอบ", ln=True, align='L')
-    for i, q in enumerate(quiz_list, 1):
-        question = q["question"]
-        choices = q["choices"]
-        
-        # Write the question number and the question text
-        pdf.cell(text=f"{i}. {question}", ln=True, align='L')
 
-        for j, c in enumerate(choices):
-            # Convert the index j to an alphabetic character
-            choice_order = chr(ord('A') + j)
-            # Write the choice number and the choice text
-            pdf.cell(text=f"    {choice_order}. {c}", ln=True, align='L')
+
+    pdf.cell(text="คำชี้แจง: เลือกคำตอบที่ถูกต้องที่สุดเพียงคำตอบเดียวลงในกระดาษคำตอบ", ln=True, align='L')
+    
+    with pdf.unbreakable() as doc:
+        for i, q in enumerate(quiz_list, 1):
+            question = q["question"]
+            choices = q["choices"]
+            
+            # Write the question number and the question text
+            pdf.cell(text=f"{i}. {question}", ln=True, align='L')
+
+            for j, c in enumerate(choices):
+                # Convert the index j to an alphabetic character
+                choice_order = chr(ord('A') + j)
+                # Write the choice number and the choice text
+                pdf.cell(text=f"    {choice_order}. {c}", ln=True, align='L')
     return bytes(pdf.output())
 
 # Embed PDF to display it:
