@@ -26,11 +26,7 @@ def gen_pdf():
     pdf.cell(text=" ", ln=True, align='L')
     pdf.cell(text=f"{q_type}", align='L')
     pdf.cell(text=f"{55*' '}จำนวน {Num_quiz} ข้อ", ln=True, align='L')
-    pdf.set_font("THSarabunB",  size=18)
-    pdf.cell(text="คำชี้แจง:", align='L')
-    pdf.set_font("THSarabun", size=18)
-    #pdf.cell(text=" เลือกคำตอบที่ถูกต้องที่สุดเพียงคำตอบเดียวลงในกระดาษคำตอบ", ln=True, align='L')
-    pdf.write(9, " เลือกคำตอบที่ถูกต้องที่สุดเพียงคำตอบเดียวลงในกระดาษคำตอบ")
+    pdf.write(15, "คำชี้แจง: เลือกคำตอบที่ถูกต้องที่สุดเพียงคำตอบเดียวลงในกระดาษคำตอบ")
     pdf.cell(text=" ", ln=True, align='L')
 
 
