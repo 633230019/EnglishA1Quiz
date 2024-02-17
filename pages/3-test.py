@@ -85,5 +85,5 @@ st.download_button(
     label="Download PDF",
     data=gen_pdf(),
     file_name="file_name.pdf",
-    mime="application/octet-stream",
+    mime="application/pdf",
 )
