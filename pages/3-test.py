@@ -26,8 +26,7 @@ def gen_pdf():
     pdf.cell(text=" ", ln=True, align='L')
     pdf.cell(text=f"{q_type}", align='L')
     pdf.cell(text=f"{55*' '}จำนวน {Num_quiz} ข้อ", ln=True, align='L')
-    pdf.write(15, "คำชี้แจง: เลือกคำตอบที่ถูกต้องที่สุดเพียงคำตอบเดียวลงในกระดาษคำตอบ")
-    pdf.cell(text=" ", ln=True, align='L')
+    pdf.write(10, "คำชี้แจง: เลือกคำตอบที่ถูกต้องที่สุดเพียงคำตอบเดียวลงในกระดาษคำตอบ")
 
 
     for i, q in enumerate(quiz_list, 1):
