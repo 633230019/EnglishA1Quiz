@@ -43,8 +43,12 @@ def gen_pdf():
             # Convert the index j to an alphabetic character
             choice_order = chr(ord('A') + j)
             # Write the choice number and the choice text
-            quiz += f"    {choice_order}. {c}\n"
-        pdf.multi_cell(0, 6.5, quiz)
+            quiz += f"    {choice_order}. {c}"
+            if j < len(choices)-1:
+                quiz += "\n"
+            else:
+                continue
+        pdf.multi_cell(0, 7, quiz)
 
     # for i, q in enumerate(quiz_list, 1):
     #     question = q["question"]
