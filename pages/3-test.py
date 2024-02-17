@@ -30,6 +30,7 @@ def gen_pdf():
     pdf.cell(text="คำชี้แจง:", align='L')
     pdf.set_font("THSarabun", size=18)
     pdf.cell(text=" เลือกคำตอบที่ถูกต้องที่สุดเพียงคำตอบเดียวลงในกระดาษคำตอบ", ln=True, align='L')
+    pdf.cell(text=" ", ln=True, align='L')
 
 
     for i, q in enumerate(quiz_list, 1):
@@ -43,7 +44,7 @@ def gen_pdf():
             choice_order = chr(ord('A') + j)
             # Write the choice number and the choice text
             quiz += f"    {choice_order}. {c}\n"
-        pdf.multi_cell(50, 5, quiz)
+        pdf.multi_cell(50, 10, quiz)
 
     # for i, q in enumerate(quiz_list, 1):
     #     question = q["question"]
