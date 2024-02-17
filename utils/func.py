@@ -92,7 +92,7 @@ def generate_quiz(num_quiz, num_choice, df_Sent, df_Word):
 def gen_pdf():
   Num_quiz = len(st.session_state.Quiz)
   Num_choice = len(st.session_state.Quiz[0]["choices"])
-  q_type = 'ประเภท: ความรู้คำศัพท์ทั่วไป'
+  q_type = st.session_state.Qtype
   quiz_list = st.session_state.Quiz
 
   pdf = FPDF()
@@ -106,7 +106,7 @@ def gen_pdf():
 
   pdf.set_font("THSarabunB", size=18)
   pdf.cell(text=" ", ln=True, align='L')
-  pdf.cell(text=f"{q_type}", align='L')
+  pdf.cell(text=f"ประเภท: {q_type}", align='L')
   pdf.cell(text=f"{55*' '}จำนวน {Num_quiz} ข้อ", ln=True, align='L')
   
   pdf.set_font("THSarabunB",  size=18)
@@ -137,7 +137,7 @@ def gen_pdf():
 
   pdf.set_font("THSarabunB", size=18)
   pdf.cell(text=" ", ln=True, align='L')
-  pdf.cell(text=f"{q_type}", align='L')
+  pdf.cell(text=f"ประเภท: {q_type}", align='L')
   pdf.cell(text=f"{55*' '}จำนวน {Num_quiz} ข้อ", ln=True, align='L')
   pdf.cell(text=" ", ln=True, align='L')
 

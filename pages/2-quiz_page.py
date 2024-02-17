@@ -22,7 +22,7 @@ try:
     # st.session_state.Quiz = ชุดข้อสอบที่สร้างจากหน้าแรก
     Num_quiz = len(st.session_state.Quiz)
     Num_choice = len(st.session_state.Quiz[0]["choices"])
-    q_type = 'ประเภท: ความรู้คำศัพท์ทั่วไป'
+    q_type = st.session_state.Qtype
 
     # กล่องข้อความแบบทดสอบ
     with st.container(border=True):
@@ -35,7 +35,7 @@ try:
 
             col1, col2 = st.columns([0.8, 0.2])
             with col1:
-                st.markdown(f"**{q_type}**")
+                st.markdown(f"**ประเภท: {q_type}**")
             with col2:
                 st.markdown(f"**จำนวน {Num_quiz} ข้อ**")
             st.write('***')   
@@ -62,7 +62,7 @@ try:
 
             col1, col2 = st.columns([0.8, 0.2])
             with col1:
-                st.markdown(f"**{q_type}**")
+                st.markdown(f"**ประเภท: {q_type}**")
             with col2:
                 st.markdown(f"**จำนวน {Num_quiz} ข้อ**")
             st.write('***')   
