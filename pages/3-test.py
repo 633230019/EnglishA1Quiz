@@ -17,7 +17,7 @@ def gen_pdf():
     pdf.add_page()
     pdf.add_font("THSarabun", fname="./data/THSarabun.ttf", uni=True)
     pdf.set_font("THSarabun", size=18)
-    pdf.set_margins(left=25, top=25, right=25, bottom=25)
+    pdf.set_margins(left=25, top=25, right=25)
     pdf.cell(text="แบบทดสอบภาษาอังกฤษระดับชั้นประถมศึกษาปีที่ 6", ln=True, align='C')
     pdf.cell(text=f"{q_type}", align='L')
     pdf.cell(text=f"{30*' '}จำนวน {Num_quiz} ข้อ", ln=True, align='L')
