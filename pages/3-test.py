@@ -51,7 +51,7 @@ def gen_pdf():
 
     pdf.add_page()
     pdf.set_font("THSarabunB",  size=24)
-    pdf.cell(text=f"เฉลยแบบทดสอบ", ln=True, align='X')
+    pdf.cell(text=f"เฉลยแบบทดสอบ", ln=True, align='C')
 
     pdf.set_font("THSarabun", size=18)
     pdf.cell(text=" ", ln=True, align='L')
