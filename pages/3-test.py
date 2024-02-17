@@ -11,7 +11,7 @@ quiz_list = st.session_state.Quiz
 
 st.title("Demo of fpdf2 usage with streamlit")
 
-@st.cache
+@st.cache_data
 def gen_pdf():
     pdf = FPDF()
     pdf.add_page()
@@ -20,7 +20,7 @@ def gen_pdf():
     pdf.set_margins(left=25, top=25, right=25)
     pdf.cell(text="แบบทดสอบภาษาอังกฤษระดับชั้นประถมศึกษาปีที่ 6", ln=True, align='C')
     pdf.cell(text=f"{q_type}", align='L')
-    pdf.cell(text=f"{30*' '}จำนวน {Num_quiz} ข้อ", ln=True, align='L')
+    pdf.cell(text=f"{50*' '}จำนวน {Num_quiz} ข้อ", ln=True, align='L')
     pdf.cell(text="คำชี้แจง: เลือกคำตอบที่ถูกต้องที่สุดเพียงคำตอบเดียวลงในกระดาษคำตอบ", ln=True, align='L')
     for i, q in enumerate(quiz_list, 1):
         question = q["question"]
