@@ -20,7 +20,7 @@ Num_quiz = len(st.session_state.Quiz)
 Num_choice = len(st.session_state.Quiz[0]["choices"])
 q_type = 'ประเภท: ความรู้คำศัพท์ทั่วไป'
 
-if None in Num_quiz or Num_choice or Num_choice:
+if Num_quiz is None or Num_choice is None or Num_choice is None:
     new_q = st.button("สร้างแบบทดสอบใหม่")
     if new_q:
         switch_page("streamlit_app")
