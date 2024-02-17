@@ -8,9 +8,6 @@ Num_choice = len(st.session_state.Quiz[0]["choices"])
 q_type = 'ประเภท: ความรู้คำศัพท์ทั่วไป'
 quiz_list = st.session_state.Quiz
 
-
-st.title("Demo of fpdf2 usage with streamlit")
-
 @st.cache_data
 def gen_pdf():
     pdf = FPDF()

@@ -3,10 +3,10 @@ import spacy
 import random
 import pandas as pd
 from spacy.tokens import Token
-from utils.func import generate_quiz
+from utils.func import gen_pdf
 from streamlit_extras.switch_page_button import switch_page
+from base64 import b64encode
 from fpdf import FPDF
-import base64
 
 # st.set_page_config(initial_sidebar_state="collapsed")
 # st.markdown(
@@ -72,7 +72,16 @@ with st.container(border=True):
                     correct_anwser = f"**{choice_order}. {c}**"
             st.markdown(f"{i}.&nbsp;{question}&nbsp;&nbsp;&nbsp;&nbsp;{correct_anwser}")
 
-download = st.button("ดาวน์โหลดแบบทดสอบ")
+base64_pdf = b64encode(gen_pdf()).decode("utf-8")
+pdf_display = f'<embed src="data:application/pdf;base64,{base64_pdf}" width="700" height="400" type="application/pdf">'
+st.markdown(pdf_display, unsafe_allow_html=True)
+
+st.download_button(
+    label="ดาวน์โหลดแบบทดสอบ",
+    data=gen_pdf(),
+    file_name=f"EnglishQuiz.pdf",
+    mime="application/pdf",
+)
 
 new_q = st.button("สร้างแบบทดสอบใหม่")
 if new_q:
