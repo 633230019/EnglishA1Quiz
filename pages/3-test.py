@@ -1,7 +1,7 @@
 from base64 import b64encode
 from fpdf import FPDF
 import streamlit as st
-
+from datetime import datetime
 
 Num_quiz = len(st.session_state.Quiz)
 Num_choice = len(st.session_state.Quiz[0]["choices"])
@@ -80,10 +80,13 @@ base64_pdf = b64encode(gen_pdf()).decode("utf-8")
 pdf_display = f'<embed src="data:application/pdf;base64,{base64_pdf}" width="700" height="400" type="application/pdf">'
 st.markdown(pdf_display, unsafe_allow_html=True)
 
+
 # Add a download button:
 st.download_button(
-    label="Download PDF",
+    now = datetime.datetime.now()
+    timestamp = f"{now:%M%H_%d%m%y}"
+    label="ดาวน์โหลดแบบทดสอบ",
     data=gen_pdf(),
-    file_name="file_name.pdf",
+    file_name=f"EnglishQuiz.pdf_{timestamp}",
     mime="application/pdf",
 )
