@@ -66,8 +66,12 @@ def gen_pdf():
         for j, c in enumerate(choices):
             choice_order = chr(ord('A') + j)
             if c == correct_answer:
-                correct_anwser = f"**{choice_order}. {c}**"
-        pdf.write(8,f"{i}. {question}\t\t\t{correct_anwser}")
+                correct_anwser = f"{choice_order}. {c}"
+        pdf.set_font("THSarabun",  size=18)
+        pdf.write(8,f"{i}. {question}")
+        pdf.set_font("THSarabunB", size=18)
+        pdf.write(10, "เลือกคำตอบที่ถูกต้องที่สุดเพียงคำตอบเดียวลงในกระดาษคำตอบ\n")
+        pdf.write(8,f"\t\t\t\t{correct_anwser}\n")
 
     return bytes(pdf.output())
 
