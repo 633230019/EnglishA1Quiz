@@ -18,15 +18,16 @@ try:
     # st.session_state.Quiz = ชุดแบบทดสอบที่สร้างจากหน้าแรก
     Num_quiz = len(st.session_state.Quiz)
     Num_choice = len(st.session_state.Quiz[0]["choices"])
-    q_type = 'แบบทดสอบความรู้คำศัพท์ทั่วไป'
+    #q_type = 'แบบทดสอบความรู้คำศัพท์ทั่วไป'
+    q_type = st.session_state['q_type']
 
     # กล่องข้อความอธิบายแบบทดสอบ
     with st.container(border=True):
         st.subheader("ข้อมูลแบบทดสอบ")
         st.markdown(f"จำนวนข้อ: {Num_quiz} ข้อ")
         st.markdown(f"จำนวนตัวเลือก: {Num_choice} ตัวเลือก")
-        #st.markdown(f"ประเภท: {q_type}")
-        st.markdown(f"ประเภท: {st.session_state['q_type']}")
+        st.markdown(f"ประเภท: {q_type}")
+        #st.markdown(f"ประเภท: {st.session_state['q_type']}")
         quiz = st.button("เปิด")
         if quiz:
             switch_page("quiz_page")
