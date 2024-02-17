@@ -44,7 +44,7 @@ def gen_pdf():
             choice_order = chr(ord('A') + j)
             # Write the choice number and the choice text
             quiz += f"    {choice_order}. {c}"
-            if j < len(choices)-1:
+            if j < (len(choices)-1):
                 quiz += "\n"
             else:
                 continue
