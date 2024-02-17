@@ -49,5 +49,4 @@ with st.container(border=True):
     if button_pressed:
         st.cache_data.clear()
         st.session_state.Quiz = generate_quiz(Num_quiz, Num_choice, df_Sent, df_Word)
-        st.session_state['q_type'] = q_type
         switch_page("quiz_generate")
