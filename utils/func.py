@@ -86,6 +86,7 @@ def gen_pdf():
   Num_choice = len(st.session_state.Quiz[0]["choices"])
   q_type = 'ประเภท: ความรู้คำศัพท์ทั่วไป'
   quiz_list = st.session_state.Quiz
+
   pdf = FPDF()
   pdf.add_page()
   pdf.add_font("THSarabun", fname="./data/THSarabun.ttf", uni=True)
@@ -95,7 +96,7 @@ def gen_pdf():
   pdf.set_font("THSarabunB",  size=24)
   pdf.cell(text=f"{10*' '}แบบทดสอบภาษาอังกฤษระดับชั้นประถมศึกษาปีที่ 6", ln=True, align='L')
 
-  pdf.set_font("THSarabun", size=18)
+  pdf.set_font("THSarabunB", size=18)
   pdf.cell(text=" ", ln=True, align='L')
   pdf.cell(text=f"{q_type}", align='L')
   pdf.cell(text=f"{55*' '}จำนวน {Num_quiz} ข้อ", ln=True, align='L')
@@ -126,7 +127,7 @@ def gen_pdf():
   pdf.set_font("THSarabunB",  size=24)
   pdf.cell(text=f"{30*' '}เฉลยแบบทดสอบ", ln=True, align='C')
 
-  pdf.set_font("THSarabun", size=18)
+  pdf.set_font("THSarabunB", size=18)
   pdf.cell(text=" ", ln=True, align='L')
   pdf.cell(text=f"{q_type}", align='L')
   pdf.cell(text=f"{55*' '}จำนวน {Num_quiz} ข้อ", ln=True, align='L')
