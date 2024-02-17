@@ -44,23 +44,31 @@ def gen_pdf():
             choice_order = chr(ord('A') + j)
             # Write the choice number and the choice text
             quiz += f"    {choice_order}. {c}\n"
+        
+        # write quiz with no page break
         with pdf.unbreakable() as doc:
             doc.write(8, quiz)
-        #pdf.write(8, quiz)
 
-    # for i, q in enumerate(quiz_list, 1):
-    #     question = q["question"]
-    #     choices = q["choices"]
-    #     quiz = ""
-    #     # Write the question number and the question text
-    #     pdf.cell(text=f"{i}. {question}", ln=True, align='L')
+    pdf.add_page()
+    pdf.set_font("THSarabunB",  size=24)
+    pdf.cell(text=f"{10*' '}เฉลยแบบทดสอบ", ln=True, align='L')
 
-    #     for j, c in enumerate(choices):
-    #         # Convert the index j to an alphabetic character
-    #         choice_order = chr(ord('A') + j)
-    #         # Write the choice number and the choice text
-    #         pdf.cell(text=f"    {choice_order}. {c}", ln=True, align='L')
-    #     pdf.multi_cell(50, 5, part)
+    pdf.set_font("THSarabun", size=18)
+    pdf.cell(text=" ", ln=True, align='L')
+    pdf.cell(text=f"{q_type}", align='L')
+    pdf.cell(text=f"{55*' '}จำนวน {Num_quiz} ข้อ", ln=True, align='L')
+    pdf.cell(text=" ", ln=True, align='L')
+
+    for i, q in enumerate(quiz_list, 1):
+        question = q["question"]
+        choices = q["choices"]
+        correct_answer = q["correct_answer"]
+        for j, c in enumerate(choices):
+            choice_order = chr(ord('A') + j)
+            if c == correct_answer:
+                correct_anwser = f"**{choice_order}. {c}**"
+        pdf.write(8,f"{i}. {question}\t\t\t{correct_anwser}")
+
     return bytes(pdf.output())
 
 # Embed PDF to display it:
