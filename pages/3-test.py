@@ -15,7 +15,7 @@ st.title("Demo of fpdf2 usage with streamlit")
 def gen_pdf():
     pdf = FPDF()
     pdf.add_page()
-    pdf.set_font("Arial", size=24)
+    pdf.set_font("Tahoma", size=24)
     pdf.cell(text="แบบทดสอบภาษาอังกฤษระดับชั้นประถมศึกษาปีที่ 6", align='C')
     pdf.Ln()
     pdf.cell(text=q_type, align='L')
