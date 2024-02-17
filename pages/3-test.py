@@ -82,11 +82,9 @@ st.markdown(pdf_display, unsafe_allow_html=True)
 
 # Add a download button:
 st.download_button(
+    timestamp = f"{datetime.now():%H+7_%M_%d_%m_%y}"
     label="ดาวน์โหลดแบบทดสอบ",
     data=gen_pdf(),
     file_name=f"EnglishQuiz.pdf_{timestamp}",
     mime="application/pdf",
 )
-if st.download_button:
-    now = datetime.now()
-    timestamp = f"{now:%H+7_%M_%d_%m_%y}"
