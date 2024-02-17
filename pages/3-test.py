@@ -80,8 +80,6 @@ base64_pdf = b64encode(gen_pdf()).decode("utf-8")
 pdf_display = f'<embed src="data:application/pdf;base64,{base64_pdf}" width="700" height="400" type="application/pdf">'
 st.markdown(pdf_display, unsafe_allow_html=True)
 
-now = datetime.now()
-timestamp = f"{now:%M%H_%d%m%y}"
 # Add a download button:
 st.download_button(
     label="ดาวน์โหลดแบบทดสอบ",
@@ -89,3 +87,6 @@ st.download_button(
     file_name=f"EnglishQuiz.pdf_{timestamp}",
     mime="application/pdf",
 )
+if st.download_button:
+    now = datetime.now()
+    timestamp = f"{now:%H+7_%M_%d_%m_%y}"
