@@ -70,8 +70,7 @@ def gen_pdf():
         pdf.set_font("THSarabun",  size=18)
         pdf.write(8,f"{i}. {question}")
         pdf.set_font("THSarabunB", size=18)
-        pdf.write(10, "เลือกคำตอบที่ถูกต้องที่สุดเพียงคำตอบเดียวลงในกระดาษคำตอบ\n")
-        pdf.write(8,f"\t\t\t\t{correct_anwser}\n")
+        pdf.write(8,f"\t\t{correct_anwser}\n")
 
     return bytes(pdf.output())
 
