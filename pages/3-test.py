@@ -27,9 +27,10 @@ def gen_pdf():
     pdf.cell(text=f"{q_type}", align='L')
     pdf.cell(text=f"{55*' '}จำนวน {Num_quiz} ข้อ", ln=True, align='L')
     pdf.set_font("THSarabunB",  size=18)
-    pdf.write_html("<b>คำชี้แจง:</b>  เลือกคำตอบที่ถูกต้องที่สุดเพียงคำตอบเดียวลงในกระดาษคำตอบ", align='L')
+    pdf.cell(text="คำชี้แจง:", align='L')
     pdf.set_font("THSarabun", size=18)
-    pdf.cell(text=" เลือกคำตอบที่ถูกต้องที่สุดเพียงคำตอบเดียวลงในกระดาษคำตอบ", ln=True, align='L')
+    #pdf.cell(text=" เลือกคำตอบที่ถูกต้องที่สุดเพียงคำตอบเดียวลงในกระดาษคำตอบ", ln=True, align='L')
+    pdf.write(9, " เลือกคำตอบที่ถูกต้องที่สุดเพียงคำตอบเดียวลงในกระดาษคำตอบ")
     pdf.cell(text=" ", ln=True, align='L')
 
 
@@ -44,8 +45,7 @@ def gen_pdf():
             choice_order = chr(ord('A') + j)
             # Write the choice number and the choice text
             quiz += f"    {choice_order}. {c}\n"
-        #quiz = quiz[:len(quiz)-2]
-        pdf.write(7, quiz)
+        pdf.write(8, quiz)
 
     # for i, q in enumerate(quiz_list, 1):
     #     question = q["question"]
