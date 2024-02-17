@@ -51,7 +51,7 @@ def gen_pdf():
 
     pdf.add_page()
     pdf.set_font("THSarabunB",  size=24)
-    pdf.cell(text=f"เฉลยแบบทดสอบ", ln=True, align='C')
+    pdf.cell(text=f"{30*' '}เฉลยแบบทดสอบ", ln=True, align='C')
 
     pdf.set_font("THSarabun", size=18)
     pdf.cell(text=" ", ln=True, align='L')
@@ -67,10 +67,11 @@ def gen_pdf():
             choice_order = chr(ord('A') + j)
             if c == correct_answer:
                 correct_anwser = f"{choice_order}. {c}"
-        pdf.set_font("THSarabun",  size=18)
-        pdf.write(8,f"{i}. {question}\n")
-        pdf.set_font("THSarabunB", size=18)
-        pdf.write(8,f"    {correct_anwser}\n")
+        with pdf.unbreakable() as doc:
+            doc.set_font("THSarabun",  size=18)
+            doc.write(8,f"{i}. {question}\n")
+            doc.set_font("THSarabunB", size=18)
+            doc.write(8,f"    {correct_anwser}\n")
 
     return bytes(pdf.output())
 
