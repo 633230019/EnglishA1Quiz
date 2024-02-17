@@ -21,12 +21,13 @@ def gen_pdf():
 
     pdf.set_font("THSarabunB",  size=24)
     pdf.cell(text=f"{10*' '}แบบทดสอบภาษาอังกฤษระดับชั้นประถมศึกษาปีที่ 6", ln=True, align='L')
-    pdf.cell(text=" ", ln=True, align='L')
 
     pdf.set_font("THSarabun", size=18)
+    pdf.cell(text=" ", ln=True, align='L')
     pdf.cell(text=f"{q_type}", align='L')
     pdf.cell(text=f"{55*' '}จำนวน {Num_quiz} ข้อ", ln=True, align='L')
-
+    pdf.cell(text=" ", ln=True, align='L')
+    
     pdf.set_font("THSarabunB",  size=18)
     pdf.cell(text="คำชี้แจง:", align='L')
     pdf.set_font("THSarabun", size=18)
