@@ -44,7 +44,7 @@ def gen_pdf():
             choice_order = chr(ord('A') + j)
             # Write the choice number and the choice text
             quiz += f"    {choice_order}. {c}\n"
-        quiz = quiz[:len(quiz)-2]
+        #quiz = quiz[:len(quiz)-2]
         pdf.multi_cell(0, 7, quiz)
 
     # for i, q in enumerate(quiz_list, 1):
