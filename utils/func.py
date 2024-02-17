@@ -82,6 +82,7 @@ def generate_quiz(num_quiz, num_choice, df_Sent, df_Word):
 
 @st.cache_data
 def gen_pdf():
+    q_type = 'ประเภท: ความรู้คำศัพท์ทั่วไป'
     pdf = FPDF()
     pdf.add_page()
     pdf.add_font("THSarabun", fname="./data/THSarabun.ttf", uni=True)
