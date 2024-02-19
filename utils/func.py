@@ -4,34 +4,13 @@ import pandas as pd
 from base64 import b64encode
 from fpdf import FPDF
 import streamlit as st
+import lemminflect
 from spacy.tokens import Token
 nlp = spacy.load("en_core_web_sm")
 
+def generate_quiz(num_quiz, num_choice, q_type_code, df_Sent, df_Word):
 
-# comment
-# comment
-# comment
-# comment
-
-def generate_quiz(num_quiz, num_choice, df_Sent, df_Word):
-
-  def get_random_sentences(df, num_sentences):
-      num_rows = len(df)
-      if num_sentences > num_rows:
-          num_sentences = num_rows  # Ensure not to select more sentences than available rows
-      
-      random_indices = random.sample(range(num_rows), num_sentences)  # Randomly select indices
-      random_sentences = df.iloc[random_indices]['Sentence'].tolist()  # Retrieve sentences at selected indices
-      
-      return random_sentences
-
-  def filter_pos(token):
-    if token.pos_ in ["VERB","NOUN","ADV","ADJ"] and token.lemma_ != "do":
-      return True
-    else:
-      return False
-
-  def format_pos(token):
+  def format_pos(token): #ปรับรูปแบบให้ตรงตามข้อมูลในตาราง
     token = token.pos_
     if token == "NOUN":
       return "noun"
@@ -43,48 +22,181 @@ def generate_quiz(num_quiz, num_choice, df_Sent, df_Word):
       return "adverb"
     else:
       return token
-  
+
+
+  def get_random_sentences(num_sentences): #สุ่มเลือกประโยคจากตาราง
+    random_sentences = []
+
+    if q_type_code == "1": #ประโยคสำหรับแบบทดสอบทั่วไป
+      num_rows = len(df_Sent)
+      random_indices = random.sample(range(num_rows), num_sentences)
+      random_sentences = df_Sent.iloc[random_indices]['Sentence'].tolist()
+
+    if q_type_code == "2": #ประโยคสำหรับแบบทดสอบ tense
+      while len(random_sentences) < num_sentences:
+        #สุ่ม 1 ประโยค จากตาราง
+        text = df_Sent["Sentence"].sample().values[0]
+        if text in random_sentences:
+          continue #ข้ามประโยคซ้ำ
+
+        doc = nlp(text)
+        easy_tense = True #เช็คระดับ tense พื้นฐาน
+        verb_num = 0 #เช็คจำนวนคำกริยาในประโยค
+
+        for token in doc:
+          if token.pos_ == "AUX" and token.lemma_ == "have":
+            easy_tense = False
+            break
+          if token.text == "been":
+            easy_tense = False
+            break
+          if token.lemma_ == "be" and "'" in token.text:
+            verb_num -+ 0 #ไม่นับ verb to be ที่มีเครื่องหมาย '
+          elif token.pos_ == "VERB":
+            verb_num += 1
+        if easy_tense and verb_num > 1:
+          #เปลี่ยนคำย่อเป็นคำเต็ม
+          text = text.replace("'m", " am")
+          text = text.replace("'re", " are")
+          text = text.replace("'s", " is")
+          random_sentences.append(text)
+    return random_sentences
+
+
+  def get_verb_from_sentence(doc): #เลือกช้อยที่เป็น verb จากประโยค
+    verbs = []
+    first_word_skipped = False
+    for i, token in enumerate(doc):
+
+      if not first_word_skipped: #ข้ามคำแรกของประโยค
+        first_word_skipped = True
+        continue
+
+      if token.pos_ == "VERB" and token.tag_ == "VBG":
+        verbs.append(token) # เพิ่มคำกริยารูป Continuous
+      elif token.lemma_ == "be" and doc[i+1].text != "n't" :
+        verbs.append(token) # เพิ่ม verb to be แบบไม่มี n't ลงท้าย
+      elif token.lemma_ == "do" and doc[i+1].text == "n't":
+        continue # ข้าม verb to do ที่มี n't ลงท้าย
+      elif token.pos_ == "VERB":
+        verbs.append(token) # เพิ่มคำกริยาใส่ verbs
+
+    verb = random.choice(verbs) # สุ่ม 1 คำจาก verbs
+    return verb
+
+
+  def get_choice_from_sentence(doc): #เลือกช้อยคำที่มีความหมายจากประโยค
+    possible_choices = []
+    first_word_skipped = False
+    for token in doc:
+
+      if not first_word_skipped: #ข้ามคำแรกของประโยค
+        first_word_skipped = True
+        continue
+
+      if token.pos_ in ["VERB","NOUN","ADV","ADJ"] and (token.lemma_ != "do" or token.lemma_ != "be"):
+      # เพิ่มคำที่มีความหมาย ที่ไม่มี do, be
+        possible_choices.append(token)
+
+    choice = random.choice(possible_choices) # สุ่ม 1 คำ
+    return choice
+
+
   def get_wrong_choices(token,num_choices):
+  #สุ่มตัวเลือกหลอกสำหรับแบบทดสอบทั่วไป
+
     pos_list = ["noun", "verb", "adjective", "adverb"] #สุ่มเฉพาะ Part of speech ใน list
     pos_list.remove(format_pos(token)) #ลบ Part of speech ของ Token ออกจาก list
-    random.shuffle(pos_list)
-    filtered_pos = pos_list[0]
-
-    #return 1 คำ ที่ไม่ใช่คำเดียวกับ token และที่ไม่เป็นชนิดเดียวกัน
-    filtered_df = df_Word[(df_Word['Word'] != token.lemma_) & (df_Word['PartofSpeech'] == filtered_pos)]
+    #คัดเฉพาะชนิดคำที่อยู่ใน pos_list
+    filtered_df = df_Word[(df_Word['Word'] != token.lemma_) & (df_Word['PartofSpeech'].isin(pos_list))]
+    #สุ่มเลือกคำจากตารางคอลัมน์ word ลบหนึ่งตัวเลือกแยกเป็นคำตอบ
     choices = filtered_df.sample(num_choices-1)['Word'].values
     return choices.tolist()
 
 
-  quiz_questions = []
+  def get_wrong_verbs(token, num_choices):
+  #สุ่มตัวเลือกหลอกสำหรับแบบทดสอบ tense
 
-  sentences = get_random_sentences(df_Sent, num_quiz)
-  for sentence in sentences:
+    #tag info https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html
+    #https://universaldependencies.org/u/pos/
+    forms_tag = ["VB", "VBD", "VBG", "VBN", "VBP", "VBD", "VBZ"]
+    verb_list = [token.text]
+
+    if token.tag_ == "VBD":  #คำกริยา past simple
+      forms_tag = ["VBD", "VBG", "VBN", "VBD"] #เอาคำประเภท VB VBZ VBP ออก
+      suffix = ["s", "ed",]
+      for i in suffix: #เติม s ed ลงท้ายคำศัพท์
+        verb_list.append(token._.inflect("VBD")+i)
+        verb_list.append(token._.inflect("VBN")+i)
+
+    for tag in forms_tag: # เพิ่มรูปคำกริยาตาม forms_tag ใส่ใน verb list
+      verb_list.append(token._.inflect(tag))
+
+    verb_list = list(set(verb_list)) #ลบคำที่ซ้ำกันออกจาก list
+    verb_list.remove(token.text) #ลบ token คำตอบออกจาก list
+
+    if len(verb_list) < num_choices-1:
+      if token._.inflect("VB")[-1] == "e" or token._.inflect("VBD")[-1] == "e": #คำลงท้ายด้วย e
+      #เติม d, ds, r ลงท้ายคำศัพท์
+        verb_list.append(token._.inflect("VB")+"d")
+        verb_list.append(token._.inflect("VB")+"ds")
+        verb_list.append(token._.inflect("VB")+"r")
+      else:
+      #เติม ed, eds, er ลงท้ายคำศัพท์
+        verb_list.append(token._.inflect("VB")+"ed")
+        verb_list.append(token._.inflect("VB")+"eds")
+        verb_list.append(token._.inflect("VB")+"er")
+    
+    if token.text == "am":
+      verb_list = ["be", "being", "are", "is", "were"]
+    if token.text == "is":
+      verb_list = ["be", "being", "am", "are", "were"]
+    if token.text == "was":
+      verb_list = ["be", "being", "are", "were"]
+    if token.text == "are" or token.text == "were":
+      verb_list = ["be", "being", "am",  "is", "was"]
+
+    verb_list = list(set(verb_list)) #ลบคำที่ซ้ำกันออกจาก list
+    #สุ่มตัวเลือกตาม num_choices ลบหนึ่งตัวเลือกแยกเป็นคำตอบ
+    verb_list = random.sample(verb_list, num_choices-1)
+    return verb_list
+
+
+  #เตรียมสร้างแบบทดสอบ
+  quiz_list = []
+  sentences = get_random_sentences(num_quiz) #สุ่มประโยคตามจำนวนที่ใส่
+
+  for sentence in sentences: 
     doc = nlp(sentence)
-    filter_choices = []
-
-    # Iterate over the tokens again to filter keywords
-    for token in doc:
-      if filter_pos(token):
-        filter_choices.append(token)
-
-    correct_choice = random.choice(filter_choices)
-    wrong_choices = get_wrong_choices(correct_choice,num_choice)
-    bold_correct_choice = "**"+correct_choice.text+"**"
     sentence = doc.text
+
+    if q_type_code == "1": #แบบทดสอบทั่วไป
+      correct_choice = get_choice_from_sentence(doc) #หาคำตอบ
+      wrong_choices = get_wrong_choices(correct_choice,num_choice) #หาตัวเลือกหลอก
+
+    if q_type_code == "2": #แบบทดสอบ tense
+      correct_choice = get_verb_from_sentence(doc) #หาคำตอบ
+      wrong_choices = get_wrong_verbs(correct_choice,num_choice) #หาตัวเลือกหลอก
+
+    # ใส่ช่องว่างลงในประโยค
     question = sentence.replace(correct_choice.text, "____", 1)
+
+    # เพิ่มสัญลักษณ์ฟ้อนตัวหนาใส่คำตอบ
+    bold_correct_choice = "**"+correct_choice.text+"**"
     correct_sentence = sentence.replace(correct_choice.text, bold_correct_choice, 1)
+
     all_choices = [correct_choice.text] + wrong_choices
     random.shuffle(all_choices)
+
     quiz_question = {
           "question": question,
           "choices": all_choices,
           "correct_answer": correct_choice.text,
           "correct_sentence": correct_sentence
     }
-    quiz_questions.append(quiz_question)
+    quiz_list.append(quiz_question)
 
-  return quiz_questions
+  return quiz_list
 
 
 
@@ -119,16 +231,17 @@ def gen_pdf():
       question = q["question"]
       choices = q["choices"]
       quiz = ""
-      # Write the question number and the question text
+
+      # เพิ่มคำถามใส่ quiz
       quiz += f"{i}. {question}\n"
+      
       for j, c in enumerate(choices):
-          # Convert the index j to an alphabetic character
+          # แปลงข้อมูลเลขใน index j เป็นตัวอักษร
           choice_order = chr(ord('A') + j)
-          # Write the choice number and the choice text
+          # เพิ่มตัวเลือกใส่ quiz
           quiz += f"    {choice_order}. {c}\n"
       
-      # write quiz with no page break
-      with pdf.unbreakable() as doc:
+      with pdf.unbreakable() as doc: # เพิ่มใส่แบบไม่ถูกตัดกลางหน้ากระดาษ
           doc.write(8, quiz)
 
   pdf.add_page()
@@ -146,10 +259,11 @@ def gen_pdf():
       choices = q["choices"]
       correct_answer = q["correct_answer"]
       for j, c in enumerate(choices):
-          choice_order = chr(ord('A') + j)
+          # แปลงข้อมูลเลขใน index j เป็นตัวอักษร
+          choice_order = chr(ord('A') + j) 
           if c == correct_answer:
               correct_anwser = f"{choice_order}. {c}"
-      with pdf.unbreakable() as doc:
+      with pdf.unbreakable() as doc: # เพิ่มใส่แบบไม่ถูกตัดกลางหน้ากระดาษ
           doc.set_font("THSarabun",  size=18)
           doc.write(8,f"{i}. {question}\n")
           doc.set_font("THSarabunB", size=18)

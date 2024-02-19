@@ -38,16 +38,23 @@ with st.container(border=True):
     # select box ประเภทแบบทดสอบ
     q_type = st.selectbox(
         'ระบุประเภทแบบทดสอบ',
-        ('ความรู้คำศัพท์ทั่วไป','ความรู้ไวยากรณ์'), key="q_type")
+        ('ความรู้คำศัพท์ทั่วไป','ความรู้ไวยากรณ์ Tense'), key="q_type")
     st.markdown("#")
+
+    if q_type == "ความรู้คำศัพท์ทั่วไป":
+        q_type_code = "1"
+    if q_type == "ความรู้ไวยากรณ์ Tense":
+        q_type_code = "2"
 
     # ปุ่มสร้างแบบทดสอบ
     columns = st.columns((1, 1, 1))
     button_pressed = columns[1].button('สร้างแบบทดสอบ')
 
+
+
     # ปุ่มสร้างแบบทดสอบ ใช้ฟังชั่น generate_quiz() ในไฟล์ func.py
     if button_pressed:
         st.cache_data.clear()
-        st.session_state.Quiz = generate_quiz(Num_quiz, Num_choice, df_Sent, df_Word)
+        st.session_state.Quiz = generate_quiz(Num_quiz, Num_choice, q_type_code, df_Sent, df_Word)
         st.session_state.Qtype = q_type
         switch_page("quiz_generate")
