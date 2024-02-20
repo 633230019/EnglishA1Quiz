@@ -99,12 +99,12 @@ try:
 
 
     if download_button:
-        clicked_download = True
+        st.session_state.clicked_download = True
         with st.spinner('กำลังสร้างไฟล์แบบทดสอบ...'):   
             st.session_state.pdf = gen_pdf()
         
     
-    if clicked_download:
+    if st.session_state.clicked_download:
         st.download_button(
             label="ดาวน์โหลด",
             on_click=enable,
