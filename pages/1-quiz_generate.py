@@ -13,11 +13,6 @@ st.markdown(
 """,
     unsafe_allow_html=True,
 )
-if "disabled" not in st.session_state:
-    st.session_state.disabled = False
-
-def disable():
-    st.session_state.disabled = True
 
 try:
     # st.session_state.Quiz = ชุดแบบทดสอบที่สร้างจากหน้าแรก
@@ -32,14 +27,11 @@ try:
         st.markdown(f"จำนวนข้อ: {Num_quiz} ข้อ")
         st.markdown(f"จำนวนตัวเลือก: {Num_choice} ตัวเลือก")
         st.markdown(f"ประเภท: {q_type}")
-        quiz = st.button("เปิด", 
-                         disabled=st.session_state.disabled)
+        quiz = st.button("เปิด")
         if quiz:
-            disable()
             switch_page("quiz_page")
 
 except Exception: # error แสดงปุ่มย้อนกลับไปหน้าแรก
     new_q = st.button("สร้างแบบทดสอบใหม่")
     if new_q:
-        st.session_state.disabled = False
         switch_page("streamlit_app")

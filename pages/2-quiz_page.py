@@ -4,6 +4,7 @@ from streamlit_extras.switch_page_button import switch_page
 from base64 import b64encode
 from fpdf import FPDF
 
+
 #ซ่อน sidebar หน้าเว็บ
 st.set_page_config(initial_sidebar_state="collapsed")
 st.markdown(
@@ -99,5 +100,4 @@ try:
 except Exception: # error แสดงปุ่มย้อนกลับไปหน้าแรก
     new_q = st.button("สร้างแบบทดสอบใหม่")
     if new_q:
-        st.session_state.disabled = False
         switch_page("streamlit_app")
