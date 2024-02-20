@@ -60,4 +60,4 @@ try:
         st.session_state.Qtype = q_type
         switch_page("quiz_generate")
 except Exception:
-    st.markdown('''red[เกิดข้อผิดพลาด กรุณาสร้างแบบทดสอบใหม่อีกครั้ง]''')
+    st.markdown(''':red[เกิดข้อผิดพลาด กรุณาสร้างแบบทดสอบใหม่อีกครั้ง]''')
