@@ -86,7 +86,7 @@ try:
     st.download_button(
         label="ดาวน์โหลดแบบทดสอบ",
         data=gen_pdf(),
-        file_name=f"EnglishQuiz.pdf",
+        file_name=f"grade6englishquiz.pdf",
         mime="application/pdf",
     )
 
