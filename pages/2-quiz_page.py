@@ -104,7 +104,6 @@ try:
             st.session_state.pdf = gen_pdf()
     
     if st.session_state.clicked_download:
-        col1.empty()
         with col1:
             st.download_button(
                 label="ดาวน์โหลด",
