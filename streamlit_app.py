@@ -58,7 +58,7 @@ with st.container(border=True):
     # ปุ่มสร้างแบบทดสอบ ใช้ฟังชั่น generate_quiz() ในไฟล์ func.py
 try:
     if button_pressed:
-        st.cache_data.clear()
+        st.cache_resource.clear()
         with st.spinner('กำลังสร้างแบบทดสอบ...'):
             st.session_state.Quiz = generate_quiz(Num_quiz, Num_choice, q_type_code, df_Sent, df_Word)
         st.session_state.Qtype = q_type

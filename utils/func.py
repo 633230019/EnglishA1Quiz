@@ -217,7 +217,7 @@ def generate_quiz(num_quiz, num_choice, q_type_code, df_Sent, df_Word):
 
 
 
-@st.cache_data
+@st.cache_resource(show_spinner=False)
 def gen_pdf():
   Num_quiz = len(st.session_state.Quiz)
   Num_choice = len(st.session_state.Quiz[0]["choices"])
