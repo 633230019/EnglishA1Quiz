@@ -33,7 +33,7 @@ with st.container(border=True):
                                 min_value=1, max_value=100, value=10, key="Num_quiz")
     with col2:
         Num_choice = st.number_input('ระบุจำนวนตัวเลือกแบบทดสอบ', 
-                                min_value=0, max_value=5, value=4, key="Num_choice")
+                                min_value=2, max_value=5, value=4, key="Num_choice")
         
     # select box ประเภทแบบทดสอบ
     q_type = st.selectbox(
