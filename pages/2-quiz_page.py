@@ -85,24 +85,23 @@ try:
         st.session_state.disabled = False
 
     # ปุ่มดาวน์โหลด pdf ใช้ฟังชั่น gen_pdf() ในไฟล์ func.py
+        
     col1, col2, col3 = st.columns(3)
     with col1:
-        download_button = st.button("ดาวน์โหลดแบบทดสอบ", 
+        download_button = st.button("บันทึกเป็นไฟล์ PDF", 
                                     on_click=disable, 
                                     disabled=st.session_state.disabled,
                                     use_container_width=True)
+        
     with col3:
         new_q = st.button("สร้างแบบทดสอบใหม่",use_container_width=True)
         if new_q:
             switch_page("streamlit_app")
 
-
-
     if download_button:
         st.session_state.clicked_download = True
         with st.spinner('กำลังสร้างไฟล์แบบทดสอบ...'):   
             st.session_state.pdf = gen_pdf()
-        
     
     if st.session_state.clicked_download:
         st.markdown("ไฟล์ PDF พร้อมดาวน์โหลด")
