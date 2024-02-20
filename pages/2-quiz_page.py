@@ -99,17 +99,19 @@ try:
 
 
     if download_button:
+        clicked_download = True
         with st.spinner('กำลังสร้างไฟล์แบบทดสอบ...'):   
             st.session_state.pdf = gen_pdf()
+        
+    
+    if clicked_download:
         st.download_button(
             label="ดาวน์โหลด",
-            #on_click=enable,
+            on_click=enable,
             data=st.session_state.pdf,
             file_name=f"grade6englishquiz.pdf",
             mime="application/pdf",
         )
-        enable()
-
 
 except Exception: # error แสดงปุ่มย้อนกลับไปหน้าแรก
     new_q = st.button("สร้างแบบทดสอบใหม่")
