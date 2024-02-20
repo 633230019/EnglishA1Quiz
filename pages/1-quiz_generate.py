@@ -17,7 +17,6 @@ st.markdown(
 
 try:
     # st.session_state.Quiz = ชุดแบบทดสอบที่สร้างจากหน้าแรก
-    st.session_state.pdf = gen_pdf()
     Num_quiz = len(st.session_state.Quiz)
     Num_choice = len(st.session_state.Quiz[0]["choices"])
     q_type = st.session_state.Qtype
@@ -32,6 +31,7 @@ try:
         quiz = st.button("เปิด")
         if quiz:
             switch_page("quiz_page")
+        st.session_state.pdf = gen_pdf()
 
 except Exception: # error แสดงปุ่มย้อนกลับไปหน้าแรก
     new_q = st.button("สร้างแบบทดสอบใหม่")
