@@ -13,7 +13,7 @@ st.markdown(
 """,
     unsafe_allow_html=True,
 )
-st.session_state.disabled = False
+st.session_state.disabled = True
 
 try:
     #ชุดแบบทดสอบที่สร้างจากหน้าแรก
@@ -28,7 +28,7 @@ try:
         st.markdown(f"จำนวนข้อ: {Num_quiz} ข้อ")
         st.markdown(f"จำนวนตัวเลือก: {Num_choice} ตัวเลือก")
         st.markdown(f"ประเภท: {q_type}")
-        quiz = st.button("เปิด")
+        quiz = st.button("เปิด" on_click=disable, disable=st.session_state.disabled)
         if quiz:
             switch_page("quiz_page")
 
