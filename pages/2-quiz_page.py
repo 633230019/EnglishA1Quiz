@@ -79,6 +79,8 @@ try:
                         correct_anwser = f"**{choice_order}. {c}**"
                 st.markdown(f"{i}.&nbsp;{question}&nbsp;&nbsp;&nbsp;&nbsp;{correct_anwser}")
 
+    if False not in st.session_state.disabled:
+        st.session_state.disabled == False
     def disable():
         st.session_state.disabled == True
 
