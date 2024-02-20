@@ -13,6 +13,7 @@ st.markdown(
 """,
     unsafe_allow_html=True,
 )
+st.session_state.disabled = False
 
 try:
     #ชุดแบบทดสอบที่สร้างจากหน้าแรก
