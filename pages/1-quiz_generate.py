@@ -13,12 +13,14 @@ st.markdown(
 """,
     unsafe_allow_html=True,
 )
-
-def disable():
-    st.session_state.disabled = True
-
 if "disabled" not in st.session_state:
     st.session_state.disabled = False
+
+if st.session_state.disabled == True:
+    st.session_state.disabled = False
+    
+def disable():
+    st.session_state.disabled = True
 
 try:
     # st.session_state.Quiz = ชุดแบบทดสอบที่สร้างจากหน้าแรก
