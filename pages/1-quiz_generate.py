@@ -30,6 +30,7 @@ try:
         st.markdown(f"จำนวนตัวเลือก: {Num_choice} ตัวเลือก")
         st.markdown(f"ประเภท: {q_type}")
         quiz = st.button("เปิด", disabled=st.session_state.disabled)
+        st.session_state.disabled = True
         if quiz:
             st.session_state.disabled = True
             with st.spinner():
