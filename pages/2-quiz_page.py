@@ -85,9 +85,9 @@ try:
     with col1:
         download_button = st.button("ดาวน์โหลดแบบทดสอบ", use_container_width=True)
     with col2:
-        new_q = st.button("สร้างแบบทดสอบใหม่")
+        new_q = st.button("สร้างแบบทดสอบใหม่",use_container_width=True)
         if new_q:
-            switch_page("streamlit_app", use_container_width=True)
+            switch_page("streamlit_app")
 
     
     if download_button:
