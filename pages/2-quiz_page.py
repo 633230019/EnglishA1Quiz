@@ -1,8 +1,6 @@
 import streamlit as st
-from utils.genquiz import gen_pdf
+from utils.genpdf import gen_pdf
 from streamlit_extras.switch_page_button import switch_page
-from base64 import b64encode
-from fpdf import FPDF
 
 #ซ่อน sidebar หน้าเว็บ
 st.set_page_config(initial_sidebar_state="collapsed")
