@@ -87,7 +87,7 @@ try:
     with st.spinner('กำลังสร้างไฟล์แบบทดสอบ...'):    
         st.download_button(
             label="ดาวน์โหลดแบบทดสอบ",
-            data=gen_pdf(),
+            data=st.session_state.pdf,
             file_name=f"grade6englishquiz.pdf",
             mime="application/pdf",
         )
