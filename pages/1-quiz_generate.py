@@ -1,5 +1,6 @@
 import streamlit as st
 from streamlit_extras.switch_page_button import switch_page
+import time
 
 #ซ่อน sidebar หน้าเว็บ
 st.set_page_config(initial_sidebar_state="collapsed")
@@ -31,8 +32,9 @@ try:
         quiz = st.button("เปิด", disabled=st.session_state.disabled)
         if quiz:
             st.session_state.disabled = True
+            with st.spinner():
+                time.sleep(1)
             switch_page("quiz_page")
-            st.session_state.disabled = True
 
 except Exception: # error แสดงปุ่มย้อนกลับไปหน้าแรก
     new_q = st.button("สร้างแบบทดสอบใหม่")
