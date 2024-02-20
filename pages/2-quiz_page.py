@@ -82,7 +82,8 @@ try:
 
 
     # ปุ่มดาวน์โหลด pdf ใช้ฟังชั่น gen_pdf() ในไฟล์ func.py
-    with st.spinner('เตรียมสร้างไฟล์แบบทดสอบ...'):
+    st.markdown("เตรียมสร้างไฟล์แบบทดสอบ")
+    with st.spinner(''):
         time.sleep(5)
     with st.spinner('กำลังสร้างไฟล์แบบทดสอบ...'):    
         st.download_button(
