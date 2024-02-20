@@ -82,15 +82,14 @@ try:
 
 
     # ปุ่มดาวน์โหลด pdf ใช้ฟังชั่น gen_pdf() ในไฟล์ func.py
-    st.markdown("เตรียมสร้างไฟล์แบบทดสอบ")
-    with st.spinner(''):
-        time.sleep(5)
+
     with st.spinner('กำลังสร้างไฟล์แบบทดสอบ...'):    
         st.download_button(
             label="ดาวน์โหลดแบบทดสอบ",
             data=gen_pdf(),
             file_name=f"grade6englishquiz.pdf",
             mime="application/pdf",
+            use_container_width=True,
         )
 
     # ปุ่มย้อนกลับไปหน้าแรก
