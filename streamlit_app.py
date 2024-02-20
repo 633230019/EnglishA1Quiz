@@ -3,6 +3,27 @@ import pandas as pd
 from utils.func import generate_quiz
 from streamlit_extras.switch_page_button import switch_page
 
+from dataclasses import dataclass
+from time import sleep
+
+
+@dataclass
+class Program:
+    progress: int = 0
+
+    def increment(self):
+        self.progress += 1
+        sleep(0.1)
+
+
+my_bar = st.progress(0, text="Operation in progress. Please wait...")
+
+p = Program()
+
+while p.progress < 100:
+    p.increment()
+    my_bar.progress(p.progress, text=f"Progress: {p.progress}%")
+
 #ซ่อน sidebar หน้าเว็บ
 st.set_page_config(initial_sidebar_state="collapsed")
 st.markdown(
