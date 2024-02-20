@@ -28,7 +28,7 @@ try:
         st.markdown(f"จำนวนข้อ: {Num_quiz} ข้อ")
         st.markdown(f"จำนวนตัวเลือก: {Num_choice} ตัวเลือก")
         st.markdown(f"ประเภท: {q_type}")
-        quiz = st.button("เปิด", disable=st.session_state.disabled)
+        quiz = st.button("เปิด")
         if quiz:
             switch_page("quiz_page")
 
