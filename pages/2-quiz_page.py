@@ -80,8 +80,7 @@ try:
                 st.markdown(f"{i}.&nbsp;{question}&nbsp;&nbsp;&nbsp;&nbsp;{correct_anwser}")
 
     def disable():
-        st.session_state.disabled == True
-    st.session_state.disabled == False
+        st.session_state.disabled = True
 
     # ปุ่มดาวน์โหลด pdf ใช้ฟังชั่น gen_pdf() ในไฟล์ func.py
     col1, col2, col3 = st.columns(3)
