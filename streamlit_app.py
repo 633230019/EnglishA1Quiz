@@ -33,7 +33,7 @@ with st.container(border=True):
                                 min_value=1, max_value=100, value=10, key="Num_quiz")
     with col2:
         Num_choice = st.number_input('ระบุจำนวนตัวเลือกแบบทดสอบ', 
-                                min_value=2, max_value=5, value=4, key="Num_choice")
+                                min_value=0, max_value=5, value=4, key="Num_choice")
         
     # select box ประเภทแบบทดสอบ
     q_type = st.selectbox(
@@ -56,7 +56,7 @@ with st.container(border=True):
 try:
     if button_pressed:
         st.cache_data.clear()
-        st.session_state.Quiz = generate_quiz(Num_quiz, 7, q_type_code, df_Sent, df_Word)
+        st.session_state.Quiz = generate_quiz(Num_quiz, Num_choice, q_type_code, df_Sent, df_Word)
         st.session_state.Qtype = q_type
         switch_page("quiz_generate")
 except Exception:
