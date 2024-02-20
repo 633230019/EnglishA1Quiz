@@ -49,8 +49,7 @@ with st.container(border=True):
         q_type_code = "2"
 
     # ปุ่มสร้างแบบทดสอบ
-    columns = st.columns((1, 1, 1))
-    button_pressed = columns[1].button('สร้างแบบทดสอบ', use_container_width=True)
+    button_pressed = button('สร้างแบบทดสอบ', use_container_width=True)
 
 
 
