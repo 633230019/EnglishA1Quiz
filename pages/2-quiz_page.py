@@ -79,22 +79,28 @@ try:
                         correct_anwser = f"**{choice_order}. {c}**"
                 st.markdown(f"{i}.&nbsp;{question}&nbsp;&nbsp;&nbsp;&nbsp;{correct_anwser}")
 
+    def disable():
+        st.session_state.disabled == True
 
     # ปุ่มดาวน์โหลด pdf ใช้ฟังชั่น gen_pdf() ในไฟล์ func.py
     col1, col2, col3 = st.columns(3)
     with col1:
-        download_button = st.button("ดาวน์โหลดแบบทดสอบ", use_container_width=True)
+        download_button = st.button("ดาวน์โหลดแบบทดสอบ", 
+                                    on_click=disable, 
+                                    disabled=st.session_state.disabled,
+                                    use_container_width=True)
     with col3:
         new_q = st.button("สร้างแบบทดสอบใหม่",use_container_width=True)
         if new_q:
             switch_page("streamlit_app")
 
-    
+
+
     if download_button:
         with st.spinner('กำลังสร้างไฟล์แบบทดสอบ...'):   
             st.session_state.pdf = gen_pdf()
         st.download_button(
-            label="ดาวน์โหลดแบบทดสอบ",
+            label="ดาวน์โหลด",
             data=st.session_state.pdf,
             file_name=f"grade6englishquiz.pdf",
             mime="application/pdf",
