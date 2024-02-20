@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 from utils.genquiz import generate_quiz
 from streamlit_extras.switch_page_button import switch_page
-
 import streamlit as st
 
 #ซ่อน sidebar หน้าเว็บ
@@ -49,13 +48,11 @@ with st.container(border=True):
         q_type_code = "2"
 
     # ปุ่มสร้างแบบทดสอบ
-    button_pressed = st.button('#สร้างแบบทดสอบ#', use_container_width=True)
+    button_pressed = st.button('สร้างแบบทดสอบ', use_container_width=True)
 
-
-
-    # ปุ่มสร้างแบบทดสอบ ใช้ฟังชั่น generate_quiz() ในไฟล์ func.py
+    
 try:
-    if button_pressed:
+    if button_pressed: # ใช้ฟังชั่น generate_quiz() ในไฟล์ func.py
         st.cache_resource.clear()
         with st.spinner('กำลังสร้างแบบทดสอบ...'):
             st.session_state.Quiz = generate_quiz(Num_quiz, Num_choice, q_type_code, df_Sent, df_Word)
