@@ -81,7 +81,9 @@ try:
 
 
     # ปุ่มดาวน์โหลด pdf ใช้ฟังชั่น gen_pdf() ในไฟล์ func.py
-
+    if st.button("Generate PDF"):
+        st.session_state.pdf = gen_pdf()
+        
     with st.spinner('กำลังสร้างไฟล์แบบทดสอบ...'):    
         st.download_button(
             label="ดาวน์โหลดแบบทดสอบ",
@@ -91,9 +93,8 @@ try:
             use_container_width=True,
         )
 
-    if st.download_button():
-        st.session_state.pdf = gen_pdf()
-        
+
+
     # ปุ่มย้อนกลับไปหน้าแรก
     st.markdown("#")
     new_q = st.button("สร้างแบบทดสอบใหม่", use_container_width=True)
