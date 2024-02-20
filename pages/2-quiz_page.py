@@ -114,7 +114,7 @@ try:
         )
 
 except Exception: # error แสดงปุ่มย้อนกลับไปหน้าแรก
-    print(Exception)
+    st.markdown(Exception)
     new_q = st.button("สร้างแบบทดสอบใหม่")
     if new_q:
         switch_page("streamlit_app")
