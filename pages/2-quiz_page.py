@@ -1,7 +1,6 @@
 import streamlit as st
 from utils.genpdf import gen_pdf
 from streamlit_extras.switch_page_button import switch_page
-import time
 
 #ซ่อน sidebar หน้าเว็บ
 st.set_page_config(initial_sidebar_state="collapsed")
@@ -86,12 +85,15 @@ try:
     with st.spinner('กำลังสร้างไฟล์แบบทดสอบ...'):    
         st.download_button(
             label="ดาวน์โหลดแบบทดสอบ",
-            data=gen_pdf(),
+            data=st.session_state.pdf,
             file_name=f"grade6englishquiz.pdf",
             mime="application/pdf",
             use_container_width=True,
         )
 
+    if st.download_button():
+        st.session_state.pdf = gen_pdf()
+        
     # ปุ่มย้อนกลับไปหน้าแรก
     st.markdown("#")
     new_q = st.button("สร้างแบบทดสอบใหม่", use_container_width=True)
