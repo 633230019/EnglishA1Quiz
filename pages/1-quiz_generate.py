@@ -33,6 +33,7 @@ try:
             switch_page("quiz_page")
 
 except Exception: # error แสดงปุ่มย้อนกลับไปหน้าแรก
-    new_q = st.button("สร้างแบบทดสอบใหม่")
-    if new_q:
-        switch_page("streamlit_app")
+    #new_q = st.button("สร้างแบบทดสอบใหม่")
+    #if new_q:
+    #    switch_page("streamlit_app")
+    pass
