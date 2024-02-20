@@ -13,7 +13,6 @@ st.markdown(
 """,
     unsafe_allow_html=True,
 )
-st.session_state.disabled = False
 
 try:
     #ชุดแบบทดสอบที่สร้างจากหน้าแรก
@@ -31,6 +30,7 @@ try:
         quiz = st.button("เปิด", disable=st.session_state.disabled)
         if quiz:
             switch_page("quiz_page")
+        st.session_state.disabled = False
 
 except Exception: # error แสดงปุ่มย้อนกลับไปหน้าแรก
     #new_q = st.button("สร้างแบบทดสอบใหม่")
