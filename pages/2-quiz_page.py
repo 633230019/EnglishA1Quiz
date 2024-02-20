@@ -21,6 +21,7 @@ try:
     Num_quiz = len(st.session_state.Quiz)
     Num_choice = len(st.session_state.Quiz[0]["choices"])
     q_type = st.session_state.Qtype
+    st.session_state.disabled = True
 
     # กล่องข้อความแบบทดสอบ
     with st.container(border=True):
