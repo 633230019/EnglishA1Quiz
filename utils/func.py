@@ -65,6 +65,7 @@ def generate_quiz(num_quiz, num_choice, q_type_code, df_Sent, df_Word):
           text = text.replace("aren't", "are not")
           text = text.replace("weren't", "were not")
           text = text.replace("wasn't", "was not")
+          text = text.replace("gonna", "going to")
           random_sentences.append(text)
     return random_sentences
 
@@ -183,11 +184,8 @@ def generate_quiz(num_quiz, num_choice, q_type_code, df_Sent, df_Word):
     sentence = doc.text
     while True: #สร้างคำถาม 1 ข้อ
         if q_type_code == "1": #แบบทดสอบทั่วไป 
-            #print("sentence:",sentence)
             correct_choice = get_choice_from_sentence(doc) #หาคำตอบ
-            #print("answer: ", correct_choice)
             wrong_choices = get_wrong_choices(correct_choice, num_choice) #หาตัวเลือกหลอก
-            #print("wrong choices: ", wrong_choices)
         if q_type_code == "2": #แบบทดสอบ tense
             correct_choice = get_verb_from_sentence(doc) #หาคำตอบ
             wrong_choices = get_wrong_verbs(correct_choice,num_choice) #หาตัวเลือกหลอก
