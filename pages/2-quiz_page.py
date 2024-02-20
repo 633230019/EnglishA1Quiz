@@ -106,7 +106,7 @@ try:
     
     if st.session_state.clicked_download:
         st.download_button(
-            label="ดาวน์โหลดไฟล์",
+            label="ดาวน์โหลด",
             data=st.session_state.pdf,
             file_name=f"grade6englishquiz.pdf",
             mime="application/pdf",
