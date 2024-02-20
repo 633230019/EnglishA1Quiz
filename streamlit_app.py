@@ -62,8 +62,8 @@ try:
         with st.spinner('กำลังสร้างแบบทดสอบ...'):
             st.session_state.Quiz = generate_quiz(Num_quiz, Num_choice, q_type_code, df_Sent, df_Word)
         st.session_state.Qtype = q_type
+        switch_page("quiz_generate")
         with st.spinner('กำลังสร้างไฟล์แบบทดสอบ...'):
             st.session_state.pdf = gen_pdf()
-        switch_page("quiz_generate")
 except Exception:
     st.markdown(''':red[เกิดข้อผิดพลาด กรุณาสร้างแบบทดสอบใหม่อีกครั้ง]''')
