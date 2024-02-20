@@ -82,16 +82,16 @@ try:
                 st.markdown(f"{i}.&nbsp;{question}&nbsp;&nbsp;&nbsp;&nbsp;{correct_anwser}")
 
 
-    # ปุ่มดาวน์โหลด pdf ใช้ฟังชั่น gen_pdf() ในไฟล์ func.py 
+    # ปุ่มดาวน์โหลด pdf ใช้ฟังชั่น gen_pdf() ในไฟล์ func.py
+    if st.download_button:
+        with st.spinner('กำลังสร้างไฟล์แบบทดสอบ...'):
+            st.session_state.pdf = gen_pdf()              
     st.download_button(
         label="ดาวน์โหลดแบบทดสอบ",
         data=st.session_state.pdf,
         file_name=f"grade6englishquiz.pdf",
         mime="application/pdf",
     )
-    if st.download_button:
-        with st.spinner('กำลังสร้างไฟล์แบบทดสอบ...'):
-            st.session_state.pdf = gen_pdf() 
 
     # ปุ่มย้อนกลับไปหน้าแรก
     new_q = st.button("สร้างแบบทดสอบใหม่")
