@@ -102,10 +102,10 @@ try:
         st.session_state.clicked_download = True
         with st.spinner('กำลังสร้างไฟล์แบบทดสอบ...'):   
             st.session_state.pdf = gen_pdf()
-        st.markdown("ไฟล์ PDF พร้อมดาวน์โหลด")
         
     
     if st.session_state.clicked_download:
+        st.markdown("ไฟล์ PDF พร้อมดาวน์โหลด")
         st.download_button(
             label="ดาวน์โหลด",
             data=st.session_state.pdf,
