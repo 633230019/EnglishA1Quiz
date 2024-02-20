@@ -81,23 +81,22 @@ try:
 
 
     # ปุ่มดาวน์โหลด pdf ใช้ฟังชั่น gen_pdf() ในไฟล์ func.py
-    if st.button("Generate PDF"):
-        st.session_state.pdf = gen_pdf()
-        
-    with st.spinner('กำลังสร้างไฟล์แบบทดสอบ...'):    
-        st.download_button(
-            label="ดาวน์โหลดแบบทดสอบ",
-            data=st.session_state.pdf,
-            file_name=f"grade6englishquiz.pdf",
-            mime="application/pdf",
-            use_container_width=True,
-        )
+    if st.button("ดาวน์โหลดแบบทดสอบ"):
+        with st.spinner('กำลังสร้างไฟล์แบบทดสอบ...'):   
+            st.session_state.pdf = gen_pdf()
+   
+    st.download_button(
+        label="ดาวน์โหลดแบบทดสอบ",
+        data=st.session_state.pdf,
+        file_name=f"grade6englishquiz.pdf",
+        mime="application/pdf",
+    )
 
 
 
     # ปุ่มย้อนกลับไปหน้าแรก
     st.markdown("#")
-    new_q = st.button("สร้างแบบทดสอบใหม่", use_container_width=True)
+    new_q = st.button("สร้างแบบทดสอบใหม่")
     if new_q:
         switch_page("streamlit_app")
 
