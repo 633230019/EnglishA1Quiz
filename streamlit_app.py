@@ -51,7 +51,6 @@ with st.container(border=True):
     # ปุ่มสร้างแบบทดสอบ
     columns = st.columns((1, 1, 1))
     button_pressed = columns[1].button('สร้างแบบทดสอบ')
-    st.session_state.disabled = False
 
 
 
