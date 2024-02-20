@@ -30,8 +30,8 @@ try:
         st.markdown(f"ประเภท: {q_type}")
         quiz = st.button("เปิด")
         if quiz:
-            st.container.empty()
             switch_page("quiz_page")
+            st.container.empty()
 
 except Exception: # error แสดงปุ่มย้อนกลับไปหน้าแรก
     new_q = st.button("สร้างแบบทดสอบใหม่")
