@@ -16,9 +16,6 @@ st.markdown(
 if "disabled" not in st.session_state:
     st.session_state.disabled = False
 
-if st.session_state.disabled == True:
-    st.session_state.disabled = False
-    
 def disable():
     st.session_state.disabled = True
 
@@ -36,7 +33,7 @@ try:
         st.markdown(f"จำนวนตัวเลือก: {Num_choice} ตัวเลือก")
         st.markdown(f"ประเภท: {q_type}")
         quiz = st.button("เปิด", 
-                         on_click=disable, disabled=st.session_state.disabled)
+                         disabled=st.session_state.disabled)
         if quiz:
             disable()
             switch_page("quiz_page")
