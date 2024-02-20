@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
-from utils.func import generate_quiz, gen_pdf
-from base64 import b64encode
+from utils.func import generate_quiz
 from streamlit_extras.switch_page_button import switch_page
 
 import streamlit as st
@@ -62,8 +61,6 @@ try:
         with st.spinner('กำลังสร้างแบบทดสอบ...'):
             st.session_state.Quiz = generate_quiz(Num_quiz, Num_choice, q_type_code, df_Sent, df_Word)
         st.session_state.Qtype = q_type
-        #with st.spinner('กำลังสร้างไฟล์แบบทดสอบ...'):
-        #    st.session_state.pdf = gen_pdf()
         switch_page("quiz_generate")
 except Exception:
     st.markdown(''':red[เกิดข้อผิดพลาด กรุณาสร้างแบบทดสอบใหม่อีกครั้ง]''')
