@@ -1,7 +1,7 @@
 import streamlit as st
 from utils.genpdf import gen_pdf
 from streamlit_extras.switch_page_button import switch_page
-
+import time
 
 #ซ่อน sidebar หน้าเว็บ
 st.set_page_config(initial_sidebar_state="collapsed")
@@ -82,6 +82,8 @@ try:
 
 
     # ปุ่มดาวน์โหลด pdf ใช้ฟังชั่น gen_pdf() ในไฟล์ func.py
+    with st.spinner('เตรียมสร้างไฟล์แบบทดสอบ...'):
+        time.sleep(1)
     with st.spinner('กำลังสร้างไฟล์แบบทดสอบ...'):    
         st.download_button(
             label="ดาวน์โหลดแบบทดสอบ",
