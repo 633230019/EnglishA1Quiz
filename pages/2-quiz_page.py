@@ -81,6 +81,8 @@ try:
 
     def disable():
         st.session_state.disabled = True
+    def enable():
+        st.session_state.disabled = False
 
     # ปุ่มดาวน์โหลด pdf ใช้ฟังชั่น gen_pdf() ในไฟล์ func.py
     col1, col2, col3 = st.columns(3)
@@ -101,6 +103,7 @@ try:
             st.session_state.pdf = gen_pdf()
         st.download_button(
             label="ดาวน์โหลด",
+            on_click=enable,
             data=st.session_state.pdf,
             file_name=f"grade6englishquiz.pdf",
             mime="application/pdf",
