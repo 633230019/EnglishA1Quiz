@@ -167,6 +167,7 @@ def generate_quiz(num_quiz, num_choice, q_type_code, df_Sent, df_Word):
       verb_list = ["be", "being", "am",  "is", "was"]
 
     verb_list = list(set(verb_list)) #ลบคำที่ซ้ำกันออกจาก list
+    verb_list.remove(token.text) #ลบ token คำตอบออกจาก list
     #สุ่มตัวเลือกตาม num_choices ลบหนึ่งตัวเลือกแยกเป็นคำตอบ
     verb_list = random.sample(verb_list, num_choices-1)
     return verb_list
