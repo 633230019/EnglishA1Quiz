@@ -102,6 +102,7 @@ try:
         st.session_state.clicked_download = True
         with st.spinner('กำลังสร้างไฟล์แบบทดสอบ...'):   
             st.session_state.pdf = gen_pdf()
+        st.success("ไฟล์พร้อมดาวน์โหลด")
         
     
     if st.session_state.clicked_download:
