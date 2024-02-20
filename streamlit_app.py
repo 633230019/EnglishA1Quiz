@@ -53,8 +53,11 @@ with st.container(border=True):
 
 
     # ปุ่มสร้างแบบทดสอบ ใช้ฟังชั่น generate_quiz() ในไฟล์ func.py
+try:
     if button_pressed:
         st.cache_data.clear()
         st.session_state.Quiz = generate_quiz(Num_quiz, Num_choice, q_type_code, df_Sent, df_Word)
         st.session_state.Qtype = q_type
         switch_page("quiz_generate")
+except Exception:
+    st.markdown('''red[เกิดข้อผิดพลาด กรุณาสร้างแบบทดสอบใหม่อีกครั้ง]''')

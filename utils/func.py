@@ -58,7 +58,13 @@ def generate_quiz(num_quiz, num_choice, q_type_code, df_Sent, df_Word):
           #เปลี่ยนคำย่อเป็นคำเต็ม
           text = text.replace("'m", " am")
           text = text.replace("'re", " are")
-          text = text.replace("'s", " is")
+          text = text.replace("it's", " it is")
+          text = text.replace("he's", " he is")
+          text = text.replace("she's", " she is")
+          text = text.replace("isn't", "is not")
+          text = text.replace("aren't", "are not")
+          text = text.replace("weren't", "were not")
+          text = text.replace("wasn't", "was not")
           random_sentences.append(text)
     return random_sentences
 
@@ -74,14 +80,18 @@ def generate_quiz(num_quiz, num_choice, q_type_code, df_Sent, df_Word):
 
       if token.pos_ == "VERB" and token.tag_ == "VBG":
         verbs.append(token) # เพิ่มคำกริยารูป Continuous
-      elif token.lemma_ == "be" and doc[i+1].text != "n't" :
+      elif token.lemma_ == "be":
         verbs.append(token) # เพิ่ม verb to be แบบไม่มี n't ลงท้าย
-      elif token.lemma_ == "do" and doc[i+1].text == "n't":
-        continue # ข้าม verb to do ที่มี n't ลงท้าย
       elif token.pos_ == "VERB":
         verbs.append(token) # เพิ่มคำกริยาใส่ verbs
 
-    verb = random.choice(verbs) # สุ่ม 1 คำจาก verbs
+    random.shuffle(verbs)
+    for token in verbs:
+      if token.tag_ == "VBG":
+        verb = token # สุ่ม 1 คำรูป Continuous จาก verbs
+        break
+      else:
+        verb = random.choice(verbs)  # สุ่ม 1 คำจาก verbs
     return verb
 
 
@@ -95,7 +105,7 @@ def generate_quiz(num_quiz, num_choice, q_type_code, df_Sent, df_Word):
         continue
 
       if token.pos_ in ["VERB","NOUN","ADV","ADJ"] and (token.lemma_ != "do" or token.lemma_ != "be"):
-      # เพิ่มคำที่มีความหมาย ที่ไม่มี do, be
+      # เพิ่มคำที่มีความหมาย ที่ไม่ใช่ do, be
         possible_choices.append(token)
 
     choice = random.choice(possible_choices) # สุ่ม 1 คำ
@@ -146,7 +156,7 @@ def generate_quiz(num_quiz, num_choice, q_type_code, df_Sent, df_Word):
         verb_list.append(token._.inflect("VB")+"ed")
         verb_list.append(token._.inflect("VB")+"eds")
         verb_list.append(token._.inflect("VB")+"er")
-    
+
     if token.text == "am":
       verb_list = ["be", "being", "are", "is", "were"]
     if token.text == "is":
@@ -166,20 +176,26 @@ def generate_quiz(num_quiz, num_choice, q_type_code, df_Sent, df_Word):
   quiz_list = []
   sentences = get_random_sentences(num_quiz) #สุ่มประโยคตามจำนวนที่ใส่
 
-  for sentence in sentences: 
+  for sentence in sentences:
     doc = nlp(sentence)
     sentence = doc.text
-
-    if q_type_code == "1": #แบบทดสอบทั่วไป
-      correct_choice = get_choice_from_sentence(doc) #หาคำตอบ
-      wrong_choices = get_wrong_choices(correct_choice,num_choice) #หาตัวเลือกหลอก
-
-    if q_type_code == "2": #แบบทดสอบ tense
-      correct_choice = get_verb_from_sentence(doc) #หาคำตอบ
-      wrong_choices = get_wrong_verbs(correct_choice,num_choice) #หาตัวเลือกหลอก
-
-    # ใส่ช่องว่างลงในประโยค
-    question = sentence.replace(correct_choice.text, "____", 1)
+    while True: #สร้างคำถาม 1 ข้อ
+        if q_type_code == "1": #แบบทดสอบทั่วไป 
+            #print("sentence:",sentence)
+            correct_choice = get_choice_from_sentence(doc) #หาคำตอบ
+            #print("answer: ", correct_choice)
+            wrong_choices = get_wrong_choices(correct_choice, num_choice) #หาตัวเลือกหลอก
+            #print("wrong choices: ", wrong_choices)
+        if q_type_code == "2": #แบบทดสอบ tense
+            correct_choice = get_verb_from_sentence(doc) #หาคำตอบ
+            wrong_choices = get_wrong_verbs(correct_choice,num_choice) #หาตัวเลือกหลอก
+        
+        #เช็คว่าคำถามไม่มีตัวอักษรติดช่อง ____
+        question = sentence.replace(correct_choice.text, "____", 1)
+        position = question.index("____")
+        if len(question) > position + 4:
+            if not question[position - 1].isalpha() and not question[position + 4].isalpha():
+              break
 
     # เพิ่มสัญลักษณ์ฟ้อนตัวหนาใส่คำตอบ
     bold_correct_choice = "**"+correct_choice.text+"**"
@@ -197,6 +213,7 @@ def generate_quiz(num_quiz, num_choice, q_type_code, df_Sent, df_Word):
     quiz_list.append(quiz_question)
 
   return quiz_list
+  #return None
 
 
 
