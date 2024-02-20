@@ -61,6 +61,7 @@ try:
             st.session_state.Quiz = generate_quiz(Num_quiz, Num_choice, q_type_code, df_Sent, df_Word)
         st.session_state.Qtype = q_type
         st.session_state.disabled = False
+        st.session_state.clicked_download = False
         switch_page("quiz_generate")
 except Exception:
     st.markdown(''':red[เกิดข้อผิดพลาด กรุณาสร้างแบบทดสอบใหม่อีกครั้ง]''')
