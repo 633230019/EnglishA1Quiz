@@ -104,13 +104,14 @@ try:
             st.session_state.pdf = gen_pdf()
     
     if st.session_state.clicked_download:
-        st.markdown("")
-        st.download_button(
-            label="ดาวน์โหลด",
-            data=st.session_state.pdf,
-            file_name=f"grade6englishquiz.pdf",
-            mime="application/pdf",
-        )
+        col1.empty()
+        with col1:
+            st.download_button(
+                label="ดาวน์โหลด",
+                data=st.session_state.pdf,
+                file_name=f"grade6englishquiz.pdf",
+                mime="application/pdf",
+            )
 
 except Exception as ex: # error แสดงปุ่มย้อนกลับไปหน้าแรก
     st.markdown(ex)
