@@ -83,15 +83,16 @@ try:
 
 
     # ปุ่มดาวน์โหลด pdf ใช้ฟังชั่น gen_pdf() ในไฟล์ func.py
-    if st.download_button:
+    download_pdf = st.button("ดาวน์โหลดแบบทดสอบ")
+    if download_pdf:
         with st.spinner('กำลังสร้างไฟล์แบบทดสอบ...'):
-            st.session_state.pdf = gen_pdf()              
-    st.download_button(
-        label="ดาวน์โหลดแบบทดสอบ",
-        data=st.session_state.pdf,
-        file_name=f"grade6englishquiz.pdf",
-        mime="application/pdf",
-    )
+            st.session_state.pdf = gen_pdf() 
+        st.download_button(
+            label="ดาวน์โหลดแบบทดสอบ",
+            data=st.session_state.pdf,
+            file_name=f"grade6englishquiz.pdf",
+            mime="application/pdf",
+        )
 
     # ปุ่มย้อนกลับไปหน้าแรก
     new_q = st.button("สร้างแบบทดสอบใหม่")
