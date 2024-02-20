@@ -49,7 +49,7 @@ with st.container(border=True):
         q_type_code = "2"
 
     # ปุ่มสร้างแบบทดสอบ
-    button_pressed = st.button('\nสร้างแบบทดสอบ\n', use_container_width=True)
+    button_pressed = st.button('#สร้างแบบทดสอบ#', use_container_width=True)
 
 
 
