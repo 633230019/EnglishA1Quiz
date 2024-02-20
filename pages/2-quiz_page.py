@@ -93,6 +93,7 @@ try:
         )
 
     # ปุ่มย้อนกลับไปหน้าแรก
+    st.markdown("#")
     new_q = st.button("สร้างแบบทดสอบใหม่", use_container_width=True)
     if new_q:
         switch_page("streamlit_app")
