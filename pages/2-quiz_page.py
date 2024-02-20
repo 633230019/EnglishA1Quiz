@@ -81,10 +81,10 @@ try:
 
 
     # ปุ่มดาวน์โหลด pdf ใช้ฟังชั่น gen_pdf() ในไฟล์ func.py
-    col1, col2 = st.columns(2)
+    col1, col2, col3 = st.columns(3)
     with col1:
         download_button = st.button("ดาวน์โหลดแบบทดสอบ", use_container_width=True)
-    with col2:
+    with col3:
         new_q = st.button("สร้างแบบทดสอบใหม่",use_container_width=True)
         if new_q:
             switch_page("streamlit_app")
