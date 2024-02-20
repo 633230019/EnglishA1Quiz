@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from utils.func import generate_quiz
+from utils.genpdf import gen_pdf
 from streamlit_extras.switch_page_button import switch_page
 
 import streamlit as st

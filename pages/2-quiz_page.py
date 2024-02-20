@@ -1,5 +1,5 @@
 import streamlit as st
-from utils.func import gen_pdf
+from utils.genquiz import gen_pdf
 from streamlit_extras.switch_page_button import switch_page
 from base64 import b64encode
 from fpdf import FPDF
