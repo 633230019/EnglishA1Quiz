@@ -84,13 +84,13 @@ try:
     if st.button("ดาวน์โหลดแบบทดสอบ"):
         with st.spinner('กำลังสร้างไฟล์แบบทดสอบ...'):   
             st.session_state.pdf = gen_pdf()
-   
-    st.download_button(
-        label="ดาวน์โหลดแบบทดสอบ",
-        data=st.session_state.pdf,
-        file_name=f"grade6englishquiz.pdf",
-        mime="application/pdf",
-    )
+        st.download_button(
+            label="ดาวน์โหลดแบบทดสอบ",
+            data=st.session_state.pdf,
+            file_name=f"grade6englishquiz.pdf",
+            mime="application/pdf",
+        )
+
 
 
 
