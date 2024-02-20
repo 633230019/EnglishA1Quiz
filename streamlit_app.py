@@ -2,27 +2,9 @@ import streamlit as st
 import pandas as pd
 from utils.func import generate_quiz
 from streamlit_extras.switch_page_button import switch_page
+import time
 
-from dataclasses import dataclass
-from time import sleep
-
-
-@dataclass
-class Program:
-    progress: int = 0
-
-    def increment(self):
-        self.progress += 1
-        sleep(0.1)
-
-
-my_bar = st.progress(0, text="Operation in progress. Please wait...")
-
-p = Program()
-
-while p.progress < 100:
-    p.increment()
-    my_bar.progress(p.progress, text=f"Progress: {p.progress}%")
+import streamlit as st
 
 #ซ่อน sidebar หน้าเว็บ
 st.set_page_config(initial_sidebar_state="collapsed")
@@ -76,6 +58,13 @@ with st.container(border=True):
     # ปุ่มสร้างแบบทดสอบ ใช้ฟังชั่น generate_quiz() ในไฟล์ func.py
 try:
     if button_pressed:
+        progress_text = "Operation in progress. Please wait."
+        my_bar = st.progress(0, text=progress_text)
+        for percent_complete in range(100):
+            time.sleep(0.01)
+            my_bar.progress(percent_complete + 1, text=progress_text)
+        time.sleep(1)
+        my_bar.empty()
         st.cache_data.clear()
         st.session_state.Quiz = generate_quiz(Num_quiz, Num_choice, q_type_code, df_Sent, df_Word)
         st.session_state.Qtype = q_type
