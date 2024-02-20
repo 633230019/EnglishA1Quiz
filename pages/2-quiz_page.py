@@ -1,6 +1,6 @@
 import streamlit as st
 from streamlit_extras.switch_page_button import switch_page
-
+from utils.func import gen_pdf
 
 
 #ซ่อน sidebar หน้าเว็บ

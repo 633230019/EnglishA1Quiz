@@ -1,5 +1,6 @@
 import streamlit as st
 from streamlit_extras.switch_page_button import switch_page
+from utils.func import gen_pdf
 
 #ซ่อน sidebar หน้าเว็บ
 st.set_page_config(initial_sidebar_state="collapsed")
@@ -16,6 +17,7 @@ st.markdown(
 
 try:
     # st.session_state.Quiz = ชุดแบบทดสอบที่สร้างจากหน้าแรก
+    st.session_state.pdf = gen_pdf()
     Num_quiz = len(st.session_state.Quiz)
     Num_choice = len(st.session_state.Quiz[0]["choices"])
     q_type = st.session_state.Qtype
