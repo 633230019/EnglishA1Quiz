@@ -112,8 +112,7 @@ try:
                 mime="application/pdf",
             )
 
-except Exception as ex: # error แสดงปุ่มย้อนกลับไปหน้าแรก
-    st.markdown(ex)
+except Exception: # error แสดงปุ่มย้อนกลับไปหน้าแรก
     new_q = st.button("สร้างแบบทดสอบใหม่")
     if new_q:
         switch_page("streamlit_app")

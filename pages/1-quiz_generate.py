@@ -1,6 +1,5 @@
 import streamlit as st
 from streamlit_extras.switch_page_button import switch_page
-import time
 
 #ซ่อน sidebar หน้าเว็บ
 st.set_page_config(initial_sidebar_state="collapsed")
