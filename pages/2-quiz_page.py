@@ -88,7 +88,7 @@ try:
         
     col1, col2, col3 = st.columns(3)
     with col1:
-        download_button = st.button("บันทึกเป็นไฟล์ PDF", 
+        download_button = st.button("ดาวน์โหลดเป็นไฟล์ PDF", 
                                     on_click=disable, 
                                     disabled=st.session_state.disabled,
                                     use_container_width=True)
@@ -104,7 +104,7 @@ try:
             st.session_state.pdf = gen_pdf()
     
     if st.session_state.clicked_download:
-        st.markdown("ไฟล์ PDF พร้อมดาวน์โหลด")
+        st.markdown("")
         st.download_button(
             label="ดาวน์โหลด",
             data=st.session_state.pdf,
