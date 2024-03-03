@@ -21,12 +21,12 @@ with st.container():
         #icons=['house', 'gear'], 
         #menu_icon="cast", 
     )
-    if selected == 'หน้าแรก':
-        switch_page("streamlit_app")
-    if selected == 'เกี่ยวกับระบบ':
-        switch_page("about_page")
-    if selected == 'สร้างแบบทดสอบ':
-        switch_page("quiz_generate")
+if selected == 'หน้าแรก':
+    switch_page("streamlit_app")
+if selected == 'เกี่ยวกับระบบ':
+    switch_page("about_page")
+if selected == 'สร้างแบบทดสอบ':
+    switch_page("quiz_generate")
 
 st.markdown("<h2 style='text-align: center;'>ระบบสร้างแบบทดสอบภาษาอังกฤษระดับชั้นประถมศึกษาปีที่ 6</h2>", unsafe_allow_html=True)
 st.markdown("<p style='text-align: center;'>สร้างแบบทดสอบภาษาอังกฤษประเภทเติมคำในช่องว่างแบบอัตโนมัติ</p>", unsafe_allow_html=True)
