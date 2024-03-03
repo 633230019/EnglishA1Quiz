@@ -44,7 +44,7 @@ try:
     st.markdown("<h2 style='text-align: center;'>ระบบสร้างแบบทดสอบภาษาอังกฤษ</h2>", unsafe_allow_html=True)
     st.markdown("<h2 style='text-align: center;'>ระดับชั้นประถมศึกษาปีที่ 6</h2>", unsafe_allow_html=True)
     st.markdown("#")
-    st.markdown("สร้างแบบทดสอบโดยใช้ ประโยคภาษาอังกฤษจากเว็บไซต์ Tatoeba และคำศัพท์ภาษาอังกฤษพื้นฐานชั้นป.6 จาก พจนานุกรม Oxford 3,000 ")
+    st.markdown("สร้างแบบทดสอบประเภทเติมคำในช่องว่างแบบอัตโนมัติ โดยใช้ประโยคภาษาอังกฤษจากเว็บไซต์ Tatoeba และคำศัพท์ภาษาอังกฤษพื้นฐานระดับชั้นประถมศึกษาปีที่ 6 จาก พจนานุกรม Oxford 3,000 ")
 
     col1, col2, col3 = st.columns(3)
     with col1:
