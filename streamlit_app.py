@@ -18,21 +18,21 @@ st.markdown(
 
 st.markdown("<h2 style='text-align: center;'>ระบบสร้างแบบทดสอบภาษาอังกฤษระดับชั้นประถมศึกษาปีที่ 6</h2>", unsafe_allow_html=True)
 st.markdown("<p style='text-align: center;'>สร้างแบบทดสอบภาษาอังกฤษประเภทเติมคำในช่องว่างแบบอัตโนมัติ</p>", unsafe_allow_html=True)
-st.markdown("#")
-st.markdown("#")
-st.markdown("#")
-st.markdown("#")
-st.markdown("#")
-st.markdown("#")
+st.markdown("-")
+st.markdown("-")
+st.markdown("-")
+st.markdown("-")
+st.markdown("-")
+st.markdown("-")
 
 with st.container():
     start = st.button("เริ่มสร้างแบบทดสอบ", use_container_width=True)
     if start:
         switch_page("quiz_generate")
 
-st.markdown("-")
-st.markdown("-")
-st.markdown("-")
+st.markdown("#")
+st.markdown("#")
+st.markdown("#")
 st.header("เกี่ยวกับระบบ")
 st.markdown("#")
 st.markdown("-")

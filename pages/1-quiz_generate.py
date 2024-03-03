@@ -20,7 +20,7 @@ st.markdown(
 df_Sent=pd.read_csv("./data/filtered_sentences_dataset_a1_20k.csv")
 df_Word=pd.read_csv("./data/oxford_a1.csv")
 
-
+# ปุ่มย้อนกลับไปหน้าแรก
 col1, col2, col3, col4 = st.columns(4)
 with col1:
     start = st.button("หน้าแรก", use_container_width=True)
