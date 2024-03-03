@@ -16,7 +16,7 @@ st.markdown(
 )
 
 with st.container():
-    selected = option_menu(None, ["Home", 'Settings'], 
+    selected = option_menu(None, ["หน้าแรก", 'เกี่ยวกับระบบ', 'แบบทดสอบ'], 
         orientation="horizontal",
         #icons=['house', 'gear'], 
         #menu_icon="cast", 
