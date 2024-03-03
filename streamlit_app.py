@@ -16,7 +16,7 @@ st.markdown(
 )
 
 with st.container():
-    selected = option_menu("Main Menu", ["Home", 'Settings'], 
+    selected = option_menu(None, ["Home", 'Settings'], 
         icons=['house', 'gear'], 
         menu_icon="cast", 
     )
