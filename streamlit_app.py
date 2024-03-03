@@ -27,10 +27,10 @@ st.markdown("#")
 
 col1, col2 = st.columns(2)
 with col1:
-    start = st.button("เกี่ยวกับระบบ")
-    if start:
+    about = st.button("เกี่ยวกับระบบ", use_container_width=True)
+    if about:
         switch_page("about_page")
 with col2:
-    start = st.button("เริ่มสร้างแบบทดสอบ")
+    start = st.button("เริ่มสร้างแบบทดสอบ", use_container_width=True)
     if start:
         switch_page("quiz_generate")
