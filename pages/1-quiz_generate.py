@@ -26,10 +26,6 @@ with col1:
     start = st.button("หน้าแรก", use_container_width=True)
     if start:
         switch_page("streamlit_app")
-with col4:
-    start = st.button("เกี่ยวกับระบบ", use_container_width=True)
-    if start:
-        switch_page("about_page")
 
 # กล่องข้อความ
 with st.container(border=True):
