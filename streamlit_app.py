@@ -32,7 +32,6 @@ with st.container():
 
 st.markdown("#")
 st.markdown("#")
-st.markdown("#")
 st.header("เกี่ยวกับระบบ")
 st.markdown("#")
 st.markdown("-")
