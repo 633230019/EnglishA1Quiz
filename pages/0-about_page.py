@@ -6,3 +6,9 @@ st.markdown("#")
 st.markdown("-")
 st.markdown("-")
 st.markdown("-")
+
+col1, col2, col3 = st.columns(3)
+with col2:
+    back = st.button("ย้อนกลับ", use_container_width=True)
+    if back:
+        switch_page("streamlit_app")
