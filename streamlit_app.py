@@ -25,8 +25,7 @@ st.markdown("#")
 st.markdown("#")
 st.markdown("#")
 
-col1= st.columns(1)
-with col1:
+with st.container():
     start = st.button("เริ่มสร้างแบบทดสอบ", use_container_width=True)
     if start:
         switch_page("quiz_generate")
