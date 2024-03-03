@@ -15,23 +15,6 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-def navigation_bar():
-    with st.container():
-        selected = option_menu(
-            menu_title=None,
-            options=["หน้าแรก", "สร้างแบบทดสอบ", "เกี่ยวกับระบบ"],  
-        )
-        if selected == "หน้าแรก":
-            switch_page("streamlit_app")
-        if selected == "สร้างแบบทดสอบ":
-            switch_page("quiz_generate")
-        if selected == "เกี่ยวกับระบบ":
-            switch_page("about_page")
-
-
-    
-
-navigation_bar()
 st.markdown("<h2 style='text-align: center;'>ระบบสร้างแบบทดสอบภาษาอังกฤษระดับชั้นประถมศึกษาปีที่ 6</h2>", unsafe_allow_html=True)
 st.markdown("<p style='text-align: center;'>สร้างแบบทดสอบภาษาอังกฤษประเภทเติมคำในช่องว่างแบบอัตโนมัติ</p>", unsafe_allow_html=True)
 st.markdown("#")
