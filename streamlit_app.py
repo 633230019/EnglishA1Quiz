@@ -17,7 +17,9 @@ st.markdown(
 
 with st.container():
     selected = option_menu("Main Menu", ["Home", 'Settings'], 
-        icons=['house', 'gear'], menu_icon="cast", default_index=1)
+        icons=['house', 'gear'], 
+        menu_icon="cast", 
+    )
     selected
 
 st.markdown("<h2 style='text-align: center;'>ระบบสร้างแบบทดสอบภาษาอังกฤษระดับชั้นประถมศึกษาปีที่ 6</h2>", unsafe_allow_html=True)
