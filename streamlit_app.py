@@ -34,3 +34,10 @@ with col2:
     start = st.button("เริ่มสร้างแบบทดสอบ", use_container_width=True)
     if start:
         switch_page("quiz_generate")
+
+
+st.header("เกี่ยวกับระบบ")
+st.markdown("#")
+st.markdown("-")
+st.markdown("-")
+st.markdown("-")
