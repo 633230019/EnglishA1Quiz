@@ -33,6 +33,6 @@ try:
             st.container.empty()
 
 except Exception: # error แสดงปุ่มย้อนกลับไปหน้าแรก
-    new_q = st.button("สร้างแบบทดสอบใหม่")
+    new_q = st.button("ย้อนกลับไปหน้าแรก")
     if new_q:
         switch_page("streamlit_app")

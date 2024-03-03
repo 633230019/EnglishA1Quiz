@@ -96,7 +96,7 @@ try:
     with col3:
         new_q = st.button("สร้างแบบทดสอบใหม่",use_container_width=True)
         if new_q:
-            switch_page("streamlit_app")
+            switch_page("quiz_generate")
 
     if download_button:
         st.session_state.clicked_download = True
@@ -113,6 +113,6 @@ try:
             )
 
 except Exception: # error แสดงปุ่มย้อนกลับไปหน้าแรก
-    new_q = st.button("สร้างแบบทดสอบใหม่")
+    new_q = st.button("ย้อนกลับไปหน้าแรก")
     if new_q:
         switch_page("streamlit_app")
