@@ -19,21 +19,12 @@ def navigation_bar():
     with st.container():
         selected = option_menu(
             menu_title=None,
-            options=["หน้าแรก", "สร้างแบบทดสอบ", "เกี่ยวกับระบบ"],
-            #icons=['house', 'cloud-upload', "graph-up-arrow", 'gear', 'phone'],
-            menu_icon="cast",
-            orientation="horizontal",
-            styles={
-                "nav-link": {
-                    "text-align": "left",
-                    "--hover-color": "#eee",
-                }
-            }
+            options=["หน้าแรก", "สร้างแบบทดสอบ", "เกี่ยวกับระบบ"],  
         )
         if selected == "หน้าแรก":
             switch_page("streamlit_app")
         if selected == "สร้างแบบทดสอบ":
-            switch_page("quiz_setting")
+            switch_page("quiz_generate")
         if selected == "เกี่ยวกับระบบ":
             switch_page("about_page")
 
