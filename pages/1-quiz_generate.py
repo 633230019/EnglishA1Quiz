@@ -23,11 +23,11 @@ df_Word=pd.read_csv("./data/oxford_a1.csv")
 
 col1, col2, col3, col4 = st.columns(4)
 with col1:
-    start = st.button("หน้าแรก")
+    start = st.button("หน้าแรก", use_container_width=True)
     if start:
         switch_page("streamlit_app")
 with col2:
-    start = st.button("เกี่ยวกับระบบ")
+    start = st.button("เกี่ยวกับระบบ", use_container_width=True)
     if start:
         switch_page("about_page")
 
