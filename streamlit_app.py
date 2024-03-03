@@ -40,7 +40,7 @@ def navigation_bar():
 
     
 try:
-    navigation_bar()
+    #navigation_bar()
     with st.container(border=True):
 
         st.header("ระบบสร้างแบบทดสอบภาษาอังกฤษระดับชั้นประถมศึกษาปีที่ 6 แบบอัตโนมัติ")
