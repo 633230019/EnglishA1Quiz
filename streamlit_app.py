@@ -42,8 +42,7 @@ def navigation_bar():
 try:
     #navigation_bar()
     st.markdown("<h2 style='text-align: center;'>ระบบสร้างแบบทดสอบภาษาอังกฤษระดับชั้นประถมศึกษาปีที่ 6</h2>", unsafe_allow_html=True)
-    st.markdown("<h2 style='text-align: center;'></h2>", unsafe_allow_html=True)
-    st.markdown("สร้างแบบทดสอบประเภทเติมคำในช่องว่างแบบอัตโนมัติ โดยใช้ประโยคภาษาอังกฤษจากเว็บไซต์ Tatoeba และคำศัพท์ภาษาอังกฤษพื้นฐานระดับชั้นประถมศึกษาปีที่ 6 จาก พจนานุกรม Oxford 3,000 ")
+    st.markdown("<p style='text-align: center;'>สร้างแบบทดสอบภาษาอังกฤษประเภทเติมคำในช่องว่างแบบอัตโนมัติ</p>", unsafe_allow_html=True)
 
     col1, col2, col3 = st.columns(3)
     with col1:
