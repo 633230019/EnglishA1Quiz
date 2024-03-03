@@ -42,6 +42,8 @@ def navigation_bar():
 try:
     #navigation_bar()
     st.markdown("<h3 style='text-align: center;'>ระบบสร้างแบบทดสอบภาษาอังกฤษระดับชั้นประถมศึกษาปีที่ 6 แบบอัตโนมัติ</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center;'>ระดับชั้นประถมศึกษาปีที่ 6</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center;'>แบบอัตโนมัติ/h3>", unsafe_allow_html=True)
     st.header("ระบบสร้างแบบทดสอบภาษาอังกฤษระดับชั้นประถมศึกษาปีที่ 6 แบบอัตโนมัติ")
     st.markdown("#")
     st.markdown("สร้างแบบทดสอบโดยใช้ ประโยคภาษาอังกฤษจากเว็บไซต์ Tatoeba และคำศัพท์ภาษาอังกฤษพื้นฐานชั้นป.6 จาก พจนานุกรม Oxford 3,000 ")
