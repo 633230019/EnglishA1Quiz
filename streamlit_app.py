@@ -18,11 +18,11 @@ st.markdown(
 with st.container(border=True):
     st.markdown("<h2 style='text-align: center;'>ระบบสร้างแบบทดสอบภาษาอังกฤษระดับชั้นประถมศึกษาปีที่ 6</h2>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center;'>สร้างแบบทดสอบภาษาอังกฤษประเภทเติมคำในช่องว่างแบบอัตโนมัติ</p>", unsafe_allow_html=True)
-    st.markdown("<h4>1. กำหนดค่าแบบทดสอบ</h4>", unsafe_allow_html=True)
+    st.markdown("<h5>1. กำหนดค่าแบบทดสอบ</h5>", unsafe_allow_html=True)
     st.markdown("ระบุจำนวนข้อแบบทดสอบที่ต้องการ เลือกจำนวนตัวเลือกต่อข้อ (4 ตัวเลือกเป็นค่ามาตรฐาน) ประเภทแบบทดสอบ")
-    st.markdown("<h4>2. สร้างแบบทดสอบ</h4>", unsafe_allow_html=True)
+    st.markdown("<h5>2. สร้างแบบทดสอบ</h5>", unsafe_allow_html=True)
     st.markdown("สร้างแบบทดสอบโดยรูปแบบการสุ่มประโยคและคำศัพท์จากฐานข้อมูล พร้อมกับเฉลยแบบทดสอบ")
-    st.markdown("<h4>3. ดาวน์โหลด</h4>", unsafe_allow_html=True)
+    st.markdown("<h5>3. ดาวน์โหลด</h5>", unsafe_allow_html=True)
     st.markdown("บันทึกแบบทดสอบและเฉลยเป็นไฟล์ PDF พิมพ์แบบทดสอบ")
     st.markdown("#")
     st.markdown("#")
@@ -33,7 +33,7 @@ with st.container(border=True):
 st.markdown("#")
 with st.container(border=True):
     st.markdown("<h2 style='text-align: center;'>เกี่ยวกับระบบ</h2>", unsafe_allow_html=True)
-    st.markdown("<h4>แหล่งข้อมูลของแบบทดสอบ</h4>", unsafe_allow_html=True)
+    st.markdown("<h5>แหล่งข้อมูลของแบบทดสอบ</h5>", unsafe_allow_html=True)
     st.markdown("* ประโยคภาษาอังกฤษจากเว็บไซต์ Tatoeba")
     st.markdown("* คำศัพท์ภาษาอังกฤษระดับชั้นป.6 จากพจนานุกรม Oxford 3,000")
     st.markdown("ประเภทของแบบทดสอบ")
