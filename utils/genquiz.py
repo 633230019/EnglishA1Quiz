@@ -133,8 +133,8 @@ def generate_quiz(num_quiz, num_choice, q_type_code, df_Sent, df_Word):
     if correct_token.tag_ == "VBD":  #คำกริยา past simple
       forms_tag = ["VBD", "VBG", "VBN", "VBD"] #เอาคำประเภท VB VBZ VBP ออก
       suffix = ["s", "ed",]
-      for i in suffix: #เติม s ed ลงท้ายคำศัพท์
-        verb_list.append(correct_token._.inflect("VBD")+i)
+      for i in suffix: #เติม s ed ลงท้ายคำรูป past, past participle
+        verb_list.append(correct_token._.inflect("VBD")+i) 
         verb_list.append(correct_token._.inflect("VBN")+i)
 
     for tag in forms_tag: # เพิ่มรูปคำกริยาตาม forms_tag ใส่ใน verb list
