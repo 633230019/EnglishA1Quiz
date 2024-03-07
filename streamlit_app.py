@@ -23,7 +23,7 @@ with st.container(border=True):
     st.markdown("<h5>2. สร้างแบบทดสอบ</h5>", unsafe_allow_html=True)
     st.markdown("สร้างแบบทดสอบโดยรูปแบบการสุ่มประโยคและคำศัพท์จากฐานข้อมูล สร้างเฉลยแบบทดสอบ")
     st.markdown("<h5>3. ดาวน์โหลด</h5>", unsafe_allow_html=True)
-    st.markdown("บันทึกแบบทดสอบและเฉลยเป็นไฟล์ PDF พิมพ์แบบทดสอบ")
+    st.markdown("บันทึกแบบทดสอบและเฉลยเป็นไฟล์ PDF")
     st.markdown("#")
     st.markdown("#")
     start = st.button("เริ่มสร้างแบบทดสอบ", use_container_width=True)
