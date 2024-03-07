@@ -122,51 +122,58 @@ def generate_quiz(num_quiz, num_choice, q_type_code, df_Sent, df_Word):
     return choices.tolist()
 
 
-  def get_wrong_verbs(token, num_choices):
+  def get_wrong_verbs(correct_token, num_choices):
   #สุ่มตัวเลือกหลอกสำหรับแบบทดสอบ tense
 
     #tag info https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html
     #https://universaldependencies.org/u/pos/
     forms_tag = ["VB", "VBD", "VBG", "VBN", "VBP", "VBD", "VBZ"]
-    verb_list = [token.text]
+    verb_list = [correct_token.text]
 
-    if token.tag_ == "VBD":  #คำกริยา past simple
+    if correct_token.tag_ == "VBD":  #คำกริยา past simple
       forms_tag = ["VBD", "VBG", "VBN", "VBD"] #เอาคำประเภท VB VBZ VBP ออก
       suffix = ["s", "ed",]
       for i in suffix: #เติม s ed ลงท้ายคำศัพท์
-        verb_list.append(token._.inflect("VBD")+i)
-        verb_list.append(token._.inflect("VBN")+i)
+        verb_list.append(correct_token._.inflect("VBD")+i)
+        verb_list.append(correct_token._.inflect("VBN")+i)
 
     for tag in forms_tag: # เพิ่มรูปคำกริยาตาม forms_tag ใส่ใน verb list
-      verb_list.append(token._.inflect(tag))
+      verb_list.append(correct_token._.inflect(tag))
 
     verb_list = list(set(verb_list)) #ลบคำที่ซ้ำกันออกจาก list
-    verb_list.remove(token.text) #ลบ token คำตอบออกจาก list
+    verb_list.remove(correct_token.text) #ลบ token คำตอบออกจาก list
 
     if len(verb_list) < num_choices-1:
-      if token._.inflect("VB")[-1] == "e" or token._.inflect("VBD")[-1] == "e": #คำลงท้ายด้วย e
+      if correct_token._.inflect("VB")[-1] == "e" or correct_token._.inflect("VBD")[-1] == "e": #คำลงท้ายด้วย e
       #เติม d, ds, r ลงท้ายคำศัพท์
-        verb_list.append(token._.inflect("VB")+"d")
-        verb_list.append(token._.inflect("VB")+"ds")
-        verb_list.append(token._.inflect("VB")+"r")
+        verb_list.append(correct_token._.inflect("VB")+"d")
+        verb_list.append(correct_token._.inflect("VB")+"ds")
+        verb_list.append(correct_token._.inflect("VB")+"r")
       else:
       #เติม ed, eds, er ลงท้ายคำศัพท์
-        verb_list.append(token._.inflect("VB")+"ed")
-        verb_list.append(token._.inflect("VB")+"eds")
-        verb_list.append(token._.inflect("VB")+"er")
+        verb_list.append(correct_token._.inflect("VB")+"ed")
+        verb_list.append(correct_token._.inflect("VB")+"eds")
+        verb_list.append(correct_token._.inflect("VB")+"er")
 
-    if token.text == "am":
+    if correct_token.text == "am":
       verb_list = ["be", "being", "are", "is", "were"]
-    if token.text == "is":
+    if correct_token.text == "is":
       verb_list = ["be", "being", "am", "are", "were"]
-    if token.text == "was":
+    if correct_token.text == "was":
       verb_list = ["be", "being", "are", "were"]
-    if token.text == "are" or token.text == "were":
+    if correct_token.text == "are" or correct_token.text == "were":
       verb_list = ["be", "being", "am",  "is", "was"]
 
+    if correct_token.text == "has":
+      verb_list = ["have", "having", "haves",  "hade"]
+    if correct_token.text == "have":
+      verb_list = ["has", "having", "haves",  "hade"]
+    if correct_token.text == "had":
+      verb_list = ["hads", "having", "haves",  "hade"]
+
     verb_list = list(set(verb_list)) #ลบคำที่ซ้ำกันออกจาก list
-    if token.text in verb_list: #ลบตัวเลือกคำตอบที่ซ้ำ
-      verb_list.remove(token.text)
+    if correct_token.text in verb_list: #ลบตัวเลือกคำตอบที่ซ้ำ
+      verb_list.remove(correct_token.text)
     #สุ่มตัวเลือกตาม num_choices ลบหนึ่งตัวเลือกแยกเป็นคำตอบ
     verb_list = random.sample(verb_list, num_choices-1)
     return verb_list
