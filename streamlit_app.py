@@ -15,17 +15,16 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
+with st.container(border=True):
+    st.markdown("<h2 style='text-align: center;'>ระบบสร้างแบบทดสอบภาษาอังกฤษระดับชั้นประถมศึกษาปีที่ 6</h2>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center;'>สร้างแบบทดสอบภาษาอังกฤษประเภทเติมคำในช่องว่างแบบอัตโนมัติ</p>", unsafe_allow_html=True)
+    st.markdown("<h4>1. กำหนดค่าแบบทดสอบ</h4>", unsafe_allow_html=True)
+    st.markdown("ระบุจำนวนข้อแบบทดสอบที่ต้องการ เลือกจำนวนตัวเลือกต่อข้อ (4 ตัวเลือกเป็นค่ามาตรฐาน) ประเภทแบบทดสอบ")
+    st.markdown("<h4>2. สร้างแบบทดสอบ</h4>", unsafe_allow_html=True)
+    st.markdown("สร้างแบบทดสอบโดยรูปแบบการสุ่มประโยคและคำศัพท์จากฐานข้อมูล พร้อมกับเฉลยแบบทดสอบ")
+    st.markdown("<h4>3. ดาวน์โหลด</h4>", unsafe_allow_html=True)
+    st.markdown("บันทึกแบบทดสอบและเฉลยเป็นไฟล์ PDF พิมพ์แบบทดสอบ")
 
-st.markdown("<h2 style='text-align: center;'>ระบบสร้างแบบทดสอบภาษาอังกฤษระดับชั้นประถมศึกษาปีที่ 6</h2>", unsafe_allow_html=True)
-st.markdown("<p style='text-align: center;'>สร้างแบบทดสอบภาษาอังกฤษประเภทเติมคำในช่องว่างแบบอัตโนมัติ</p>", unsafe_allow_html=True)
-st.markdown("<h4>1. กำหนดค่าแบบทดสอบ</h4>", unsafe_allow_html=True)
-st.markdown("ระบุจำนวนข้อแบบทดสอบที่ต้องการ เลือกจำนวนตัวเลือกต่อข้อ (4 ตัวเลือกเป็นค่ามาตรฐาน) ประเภทแบบทดสอบ")
-st.markdown("<h4>2. สร้างแบบทดสอบ</h4>", unsafe_allow_html=True)
-st.markdown("สร้างแบบทดสอบโดยรูปแบบการสุ่มประโยคและคำศัพท์จากฐานข้อมูล พร้อมกับเฉลยแบบทดสอบ")
-st.markdown("<h4>3. ดาวน์โหลด</h4>", unsafe_allow_html=True)
-st.markdown("บันทึกแบบทดสอบและเฉลยเป็นไฟล์ PDF พิมพ์แบบทดสอบ")
-
-with st.container():
     start = st.button("เริ่มสร้างแบบทดสอบ", use_container_width=True)
     if start:
         switch_page("quiz_generate")
