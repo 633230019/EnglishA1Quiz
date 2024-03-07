@@ -33,7 +33,7 @@ with st.container(border=True):
 st.markdown("#")
 with st.container(border=True):
     st.markdown("<h2 style='text-align: center;'>เกี่ยวกับระบบ</h2>", unsafe_allow_html=True)
-    st.markdown("แหล่งข้อมูลของแบบทดสอบ")
+    st.markdown("<h4>แหล่งข้อมูลของแบบทดสอบ</h4>", unsafe_allow_html=True)
     st.markdown("* ประโยคภาษาอังกฤษจากเว็บไซต์ Tatoeba")
     st.markdown("* คำศัพท์ภาษาอังกฤษระดับชั้นป.6 จากพจนานุกรม Oxford 3,000")
     st.markdown("ประเภทของแบบทดสอบ")
