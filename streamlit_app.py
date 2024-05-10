@@ -33,6 +33,9 @@ with st.container(border=True):
     if start:
         switch_page("quiz_generate")
 
+with st.container(height=500, border=False):
+    st.image("./data/sample_exercise.jpg", use_column_width=None)
+
 col1, col2, col3 = st.columns(3)
 with col1:
     with st.container(height=300,border=True):
