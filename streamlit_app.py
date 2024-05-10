@@ -55,7 +55,7 @@ with col3:
 
 st.markdown("#")   
 st.markdown("<b style='text-align: center;'>ตัวอย่างแบบทดสอบ</b>", unsafe_allow_html=True)
-with st.container(height=350, border=True):
+with st.container(height=500, border=True):
     st.image("./data/sample_exercise.jpg", use_column_width=None)
     st.markdown("#")
 
@@ -67,9 +67,9 @@ st.markdown("#")
 with st.container(border=True):
     st.markdown("<h2 style='text-align: center;'>เกี่ยวกับระบบ</h2>", unsafe_allow_html=True)
     st.markdown("<h5>แหล่งข้อมูลของแบบทดสอบ</h5>", unsafe_allow_html=True)
-    st.markdown("* ประโยคภาษาอังกฤษจากเว็บไซต์ Tatoeba")
-    st.markdown("* คำศัพท์ภาษาอังกฤษระดับชั้นประถมศึกษาปีที่ 6 จากพจนานุกรม Oxford 3,000")
-    st.markdown("<h5>ประเภทของแบบทดสอบ</h5>", unsafe_allow_html=True)
+    st.markdown("* ประโยคภาษาอังกฤษ ระดับ CEFR A1 จากเว็บไซต์ Tatoeba")
+    st.markdown("* คำศัพท์ภาษาอังกฤษระดับชั้นประถมศึกษาปีที่ 6 ระดับ CEFR A1 จากพจนานุกรม The Oxford 3000 by CEFR Level")
+    st.markdown("<h5>หัวข้อเนื้อหาของแบบทดสอบ</h5>", unsafe_allow_html=True)
     st.markdown("* ทดสอบความรู้คำศัพท์ทั่วไป: เติมคำศัพท์ที่ถูกต้องในช่องว่างจากตัวเลือกคำศัพท์ทั่วไป")
     st.markdown("* ทดสอบความรู้ไวยากรณ์ Tense: เติมคำกริยาตามรูป Tense ที่ถูกต้องในช่องว่าง")
     st.markdown("<h5>หัวข้อ Tense ของแบบทดสอบ</h5>", unsafe_allow_html=True)
