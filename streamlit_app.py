@@ -11,13 +11,13 @@ st.markdown(
     }
 
     div.stButton > button:first-child {
-    background-color: #0099ff;
+    background-color: #FF4B4B;
     color:#ffffff;
     }
 
     div.stButton > button:hover {
-    background-color: #00ff00;
-    color:#ff0000;
+    background-color: #ffffff;
+    color:#FF4B4B;
     }
 </style>
 """,
