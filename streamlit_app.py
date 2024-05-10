@@ -26,7 +26,7 @@ st.markdown(
 
 with st.container(border=True):
     st.markdown("<h3 style='text-align: center;'>ระบบสร้างแบบทดสอบภาษาอังกฤษระดับชั้นประถมศึกษาปีที่ 6 แบบอัตโนมัติ</h2>", unsafe_allow_html=True)
-    st.markdown("<p style='text-align: center;'>สร้างแบบทดสอบภาษาอังกฤษประเภทเติมคำในช่องว่างแบบอัตโนมัติ</p>", unsafe_allow_html=True)
+    st.markdown("<h5 style='text-align: center;'>สร้างแบบทดสอบภาษาอังกฤษประเภทเติมคำในช่องว่างแบบอัตโนมัติ</h5>", unsafe_allow_html=True)
     # st.markdown("สร้างแบบทดสอบภาษาอังกฤษประเภทเติมคำในช่องว่างแบบอัตโนมัติ")
     st.markdown("#")
     start = st.button("เริ่มสร้างแบบทดสอบ", use_container_width=True)
@@ -36,19 +36,19 @@ with st.container(border=True):
 st.markdown("#")
 col1, col2, col3 = st.columns(3)
 with col1:
-    with st.container(height=250,border=True):
+    with st.container(height=200,border=True):
         st.markdown("<h6 style='text-align: center;'>1. สร้างแบบทดสอบ</h6>", unsafe_allow_html=True)
         st.markdown("#")
         st.markdown("ใส่จำนวนข้อสอบที่ต้องการสร้าง และข้อมูลอื่น ๆ เพื่อสร้างแบบทดสอบ")
 
 with col2:
-    with st.container(height=250,border=True):
+    with st.container(height=200,border=True):
         st.markdown("<h6 style='text-align: center;'>2. รับแบบทดสอบและเฉลยแบบทดสอบ</h6>", unsafe_allow_html=True)
         st.markdown("#")
         st.markdown("รับแบบทดสอบและเฉลยแบบทดสอบตามข้อมูลที่ได้ระบุไว้")
 
 with col3:
-    with st.container(height=250,border=True):
+    with st.container(height=200,border=True):
         st.markdown("<h6 style='text-align: center;'>3. ดาวน์โหลด</h6>", unsafe_allow_html=True)
         st.markdown("#")
         st.markdown("บันทึกแบบทดสอบและเฉลยแบบทดสอบเป็นไฟล์ PDF")
