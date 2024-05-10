@@ -33,16 +33,9 @@ with st.container(border=True):
     if start:
         switch_page("quiz_generate")
 
-    st.markdown("<h5>1. กำหนดค่าแบบทดสอบ</h5>", unsafe_allow_html=True)
-    st.markdown("ระบุจำนวนข้อแบบทดสอบที่ต้องการ เลือกจำนวนตัวเลือกต่อข้อ (4 ตัวเลือกเป็นค่ามาตรฐาน) ประเภทแบบทดสอบ")
-    st.markdown("<h5>2. สร้างแบบทดสอบ</h5>", unsafe_allow_html=True)
-    st.markdown("สร้างแบบทดสอบโดยรูปแบบการสุ่มประโยคและคำศัพท์จากฐานข้อมูล สร้างเฉลยแบบทดสอบ")
-    st.markdown("<h5>3. ดาวน์โหลด</h5>", unsafe_allow_html=True)
-    st.markdown("บันทึกแบบทดสอบและเฉลยเป็นไฟล์ PDF")
-
 col1, col2, col3 = st.columns(3)
 with col1:
-    with st.container(border=True):
+    with st.container(height=20,border=True):
         st.markdown("<h4 style='text-align: center;'>1. สร้างแบบทดสอบ</h4>", unsafe_allow_html=True)
         st.markdown("#")
         st.markdown("ใส่จำนวนข้อสอบที่ต้องการสร้าง และข้อมูลอื่น ๆ เพื่อสร้างแบบทดสอบ")
