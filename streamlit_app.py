@@ -33,8 +33,10 @@ with st.container(border=True):
     if start:
         switch_page("quiz_generate")
 
-with st.container(height=500, border=False):
+with st.container(height=350, border=True):
+    st.markdown("<h4 style='text-align: center;'>ตัวอย่างแบบทดสอบ</h4>", unsafe_allow_html=True)
     st.image("./data/sample_exercise.jpg", use_column_width=None)
+    st.markdown("#")
 
 col1, col2, col3 = st.columns(3)
 with col1:
