@@ -37,7 +37,7 @@ st.markdown("#")
 col1, col2, col3 = st.columns(3)
 with col1:
     with st.container(height=250,border=True):
-        st.markdown("<p style='text-align: center;'>1. สร้างแบบทดสอบ</p>", unsafe_allow_html=True)
+        st.markdown("<h6 style='text-align: center;'>1. สร้างแบบทดสอบ</h6>", unsafe_allow_html=True)
         st.markdown("#")
         st.markdown("ใส่จำนวนข้อสอบที่ต้องการสร้าง และข้อมูลอื่น ๆ เพื่อสร้างแบบทดสอบ")
 
