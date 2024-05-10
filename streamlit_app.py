@@ -43,13 +43,13 @@ with col1:
 
 with col2:
     with st.container(height=250,border=True):
-        st.markdown("<p style='text-align: center;'>2. รับแบบทดสอบและเฉลยแบบทดสอบ</p>", unsafe_allow_html=True)
+        st.markdown("<h6 style='text-align: center;'>2. รับแบบทดสอบและเฉลยแบบทดสอบ</h6>", unsafe_allow_html=True)
         st.markdown("#")
         st.markdown("รับแบบทดสอบและเฉลยแบบทดสอบตามข้อมูลที่ได้ระบุไว้")
 
 with col3:
     with st.container(height=250,border=True):
-        st.markdown("<p style='text-align: center;'>3. ดาวน์โหลด</p>", unsafe_allow_html=True)
+        st.markdown("<h6 style='text-align: center;'>3. ดาวน์โหลด</h6>", unsafe_allow_html=True)
         st.markdown("#")
         st.markdown("บันทึกแบบทดสอบและเฉลยแบบทดสอบเป็นไฟล์ PDF")
 
