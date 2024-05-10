@@ -32,24 +32,24 @@ with st.container(border=True):
     start = st.button("เริ่มสร้างแบบทดสอบ", use_container_width=True)
     if start:
         switch_page("quiz_generate")
-        
+
 st.markdown("#")
 col1, col2, col3 = st.columns(3)
 with col1:
-    with st.container(height=300,border=True):
-        st.markdown("<h4 style='text-align: center;'>1. สร้างแบบทดสอบ</h4>", unsafe_allow_html=True)
+    with st.container(height=250,border=True):
+        st.markdown("<b style='text-align: center;'>1. สร้างแบบทดสอบ</b>", unsafe_allow_html=True)
         st.markdown("#")
         st.markdown("ใส่จำนวนข้อสอบที่ต้องการสร้าง และข้อมูลอื่น ๆ เพื่อสร้างแบบทดสอบ")
 
 with col2:
-    with st.container(height=300,border=True):
-        st.markdown("<h4 style='text-align: center;'>2. รับแบบทดสอบและเฉลยแบบทดสอบ</h4>", unsafe_allow_html=True)
+    with st.container(height=250,border=True):
+        st.markdown("<b style='text-align: center;'>2. รับแบบทดสอบและเฉลยแบบทดสอบ</b>", unsafe_allow_html=True)
         st.markdown("#")
         st.markdown("รับแบบทดสอบและเฉลยแบบทดสอบตามข้อมูลที่ได้ระบุไว้")
 
 with col3:
-    with st.container(height=300,border=True):
-        st.markdown("<h4 style='text-align: center;'>3. ดาวน์โหลด</h4>", unsafe_allow_html=True)
+    with st.container(height=250,border=True):
+        st.markdown("<b style='text-align: center;'>3. ดาวน์โหลด</b>", unsafe_allow_html=True)
         st.markdown("#")
         st.markdown("บันทึกแบบทดสอบและเฉลยแบบทดสอบเป็นไฟล์ PDF")
 
