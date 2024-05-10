@@ -32,9 +32,10 @@ with st.container(border=True):
     start = st.button("เริ่มสร้างแบบทดสอบ", use_container_width=True)
     if start:
         switch_page("quiz_generate")
-
+        
+st.markdown("#")
+st.markdown("<h4 style='text-align: center;'>ตัวอย่างแบบทดสอบ</h4>", unsafe_allow_html=True)
 with st.container(height=350, border=True):
-    st.markdown("<h4 style='text-align: center;'>ตัวอย่างแบบทดสอบ</h4>", unsafe_allow_html=True)
     st.image("./data/sample_exercise.jpg", use_column_width=None)
     st.markdown("#")
 
