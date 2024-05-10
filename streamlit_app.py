@@ -27,8 +27,7 @@ st.markdown(
 with st.container(border=True):
     st.markdown("<h3 style='text-align: center;'>ระบบสร้างแบบทดสอบภาษาอังกฤษระดับชั้นประถมศึกษาปีที่ 6 แบบอัตโนมัติ</h2>", unsafe_allow_html=True)
     st.markdown("<h6 style='text-align: center;'>สร้างแบบทดสอบภาษาอังกฤษประเภทเติมคำในช่องว่างแบบอัตโนมัติ</h6>", unsafe_allow_html=True)
-    # st.markdown("สร้างแบบทดสอบภาษาอังกฤษประเภทเติมคำในช่องว่างแบบอัตโนมัติ")
-    st.markdown("#")
+    st.markdown("<hr>", unsafe_allow_html=True)
     start = st.button("เริ่มสร้างแบบทดสอบ", use_container_width=True)
     if start:
         switch_page("quiz_generate")
