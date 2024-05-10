@@ -66,7 +66,7 @@ st.markdown("#")
 with st.container(border=True):
     st.markdown("<h2 style='text-align: center;'>เกี่ยวกับระบบ</h2>", unsafe_allow_html=True)
     st.markdown("<h5>แหล่งข้อมูลของแบบทดสอบ</h5>", unsafe_allow_html=True)
-    st.markdown("* ประโยคภาษาอังกฤษ ระดับ CEFR A1 จากเว็บไซต์ Tatoeba")
+    st.markdown("* ประโยคภาษาอังกฤษ ระดับ CEFR A1 จากเว็บไซต์ <a href='https://tatoeba.org/en/sentences/show_all_in/eng/none'>Tatoeba</a>", unsafe_allow_html=True)
     st.markdown("* คำศัพท์ภาษาอังกฤษระดับชั้นประถมศึกษาปีที่ 6 ระดับ CEFR A1 จากพจนานุกรม The Oxford 3000 by CEFR Level")
     st.markdown("<h5>หัวข้อเนื้อหาของแบบทดสอบ</h5>", unsafe_allow_html=True)
     st.markdown("* ทดสอบความรู้คำศัพท์ทั่วไป: เติมคำศัพท์ที่ถูกต้องในช่องว่างจากตัวเลือกคำศัพท์ทั่วไป")
