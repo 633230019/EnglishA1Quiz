@@ -43,7 +43,7 @@ try:
 
             col1, col2 = st.columns([0.8, 0.2])
             with col1:
-                st.markdown(f"**ประเภท: {q_type}**")
+                st.markdown(f"**หัวข้อเนื้อหา: {q_type}**")
             with col2:
                 st.markdown(f"**จำนวน {Num_quiz} ข้อ**")
             st.write('***')   
@@ -70,7 +70,7 @@ try:
 
             col1, col2 = st.columns([0.8, 0.2])
             with col1:
-                st.markdown(f"**ประเภท: {q_type}**")
+                st.markdown(f"**หัวข้อเนื้อหา: {q_type}**")
             with col2:
                 st.markdown(f"**จำนวน {Num_quiz} ข้อ**")
             st.write('***')   

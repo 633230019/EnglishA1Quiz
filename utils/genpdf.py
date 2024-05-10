@@ -22,7 +22,7 @@ def gen_pdf():
 
   pdf.set_font("THSarabunB", size=18)
   pdf.cell(text=" ", ln=True, align='L')
-  pdf.cell(text=f"ประเภท: {q_type}", align='L')
+  pdf.cell(text=f"หัวข้อเนื้อหา: {q_type}", align='L')
   pdf.cell(text=f"{55*' '}จำนวน {Num_quiz} ข้อ", ln=True, align='L')
   
   pdf.set_font("THSarabunB",  size=18)
@@ -54,7 +54,7 @@ def gen_pdf():
 
   pdf.set_font("THSarabunB", size=18)
   pdf.cell(text=" ", ln=True, align='L')
-  pdf.cell(text=f"ประเภท: {q_type}", align='L')
+  pdf.cell(text=f"หัวข้อเนื้อหา: {q_type}", align='L')
   pdf.cell(text=f"{55*' '}จำนวน {Num_quiz} ข้อ", ln=True, align='L')
   pdf.cell(text=" ", ln=True, align='L')
 

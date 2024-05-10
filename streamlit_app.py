@@ -54,7 +54,7 @@ with col3:
         st.markdown("บันทึกแบบทดสอบและเฉลยแบบทดสอบเป็นไฟล์ PDF")
 
 st.markdown("#")   
-st.markdown("<p style='text-align: center;'>ตัวอย่างแบบทดสอบ</p>", unsafe_allow_html=True)
+st.markdown("<b style='text-align: center;'>ตัวอย่างแบบทดสอบ</b>", unsafe_allow_html=True)
 with st.container(height=350, border=True):
     st.image("./data/sample_exercise.jpg", use_column_width=None)
     st.markdown("#")

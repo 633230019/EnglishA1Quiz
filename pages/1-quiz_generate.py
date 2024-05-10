@@ -53,9 +53,9 @@ with st.container(border=True):
         Num_choice = st.number_input('ระบุจำนวนตัวเลือกแบบทดสอบ', 
                                 min_value=2, max_value=5, value=4, key="Num_choice")
         
-    # select box ประเภทแบบทดสอบ
+    # select box หัวข้อเนื้อหาแบบทดสอบ
     q_type = st.selectbox(
-        'ระบุประเภทแบบทดสอบ',
+        'ระบุหัวข้อเนื้อหาแบบทดสอบ',
         ('ความรู้คำศัพท์ทั่วไป','ความรู้ไวยากรณ์ Tense'), key="q_type")
     st.markdown("#")
 
