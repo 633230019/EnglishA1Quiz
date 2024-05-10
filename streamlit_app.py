@@ -37,24 +37,24 @@ st.markdown("#")
 col1, col2, col3 = st.columns(3)
 with col1:
     with st.container(height=250,border=True):
-        st.markdown("<b style='text-align: center;'>1. สร้างแบบทดสอบ</b>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center;'>1. สร้างแบบทดสอบ</p>", unsafe_allow_html=True)
         st.markdown("#")
         st.markdown("ใส่จำนวนข้อสอบที่ต้องการสร้าง และข้อมูลอื่น ๆ เพื่อสร้างแบบทดสอบ")
 
 with col2:
     with st.container(height=250,border=True):
-        st.markdown("<b style='text-align: center;'>2. รับแบบทดสอบและเฉลยแบบทดสอบ</b>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center;'>2. รับแบบทดสอบและเฉลยแบบทดสอบ</p>", unsafe_allow_html=True)
         st.markdown("#")
         st.markdown("รับแบบทดสอบและเฉลยแบบทดสอบตามข้อมูลที่ได้ระบุไว้")
 
 with col3:
     with st.container(height=250,border=True):
-        st.markdown("<b style='text-align: center;'>3. ดาวน์โหลด</b>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center;'>3. ดาวน์โหลด</p>", unsafe_allow_html=True)
         st.markdown("#")
         st.markdown("บันทึกแบบทดสอบและเฉลยแบบทดสอบเป็นไฟล์ PDF")
 
 st.markdown("#")   
-st.markdown("<b style='text-align: center;'>ตัวอย่างแบบทดสอบ</b>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center;'>ตัวอย่างแบบทดสอบ</p>", unsafe_allow_html=True)
 with st.container(height=500, border=True):
     st.image("./data/sample_exercise.jpg", use_column_width=None)
     st.markdown("#")
