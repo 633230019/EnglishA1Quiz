@@ -9,6 +9,16 @@ st.markdown(
     [data-testid="collapsedControl"] {
         display: none
     }
+
+    div.stButton > button:first-child {
+    background-color: #FF4B4B;
+    color:#ffffff;
+    }
+
+    div.stButton > button:hover {
+    background-color: #ffffff;
+    color:#FF4B4B;
+    }
 </style>
 """,
     unsafe_allow_html=True,
